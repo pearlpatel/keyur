@@ -1,0 +1,303 @@
+/*tablet view*/
+
+@media screen and (min-width:768px) and (max-width:1169px){
+.carousel-inner > .item {
+
+  float:none
+}
+#myCarousel .carousel-caption {
+  left: auto;
+  padding-bottom: 30px;
+  right: 6%;
+  top: 17%;
+  width: 36%;
+}
+#myCarousel .carousel-caption p {
+  font-size: 14px;
+  line-height: 164%;
+}
+#myCarousel .carousel-caption h3{
+     font-size:25px;    
+}
+#myCarousel .carousel-caption input {
+
+  font-size: 22px;
+  height: 43px;
+  width: 120px;
+}
+#myCarousel .carousel-caption button {
+  font-size: 20px;
+  line-height: 1.5;
+  padding: 6px 20px;
+}
+#myCarousel .carousel-control.right {
+ 
+  font-size: 30px;
+  height: 30px;
+  line-height: 24px;
+  position: absolute;
+  right: 1%;
+  top: 40%;
+  width: 30px;
+}
+#myCarousel .carousel-control.left {
+  
+  font-size: 30px;
+  height: 30px;
+  left: 1%;
+  line-height: 24px;
+  position: absolute;
+  top: 40%;
+  width: 30px;
+}
+#myCarousel2 {
+  margin: 0 auto;
+  width: 100%;
+}
+.client_slider{padding:75px 0;}
+.proimg h1{
+     font-size:28px;
+     width:74%;
+     height:40px;    
+}
+.product_inner  .img-responsive {
+  
+  width: 83%;
+}
+#price .col-lg-42 {
+  margin-right: 0;
+  width: 34%;
+}
+.border2.border768{
+     display:none;    
+}
+ul.navbar-nav li a {
+ 
+  font-size: 16px;
+
+  padding: 14px;
+}
+.nav > li {
+  margin: 0 4px 0 0;
+}
+.pricbox h2{font-size:30px;}
+.pricbox .price{font-size:38px;}
+}
+
+/*tablet view*/
+
+/*mobile view*/
+@media screen and (max-width:767px) {
+.carousel-inner > .item {
+
+  float:none
+}
+.main-navigation .navbar
+ {
+  background: #49b4e4 none repeat scroll 0 0;
+  margin: 23px 0 0;
+  min-height: 100%;
+  position: relative;
+ 
+}
+.navbar-toggle{
+     background:#fff;    
+}
+
+.navbar-toggle .icon-bar {
+  background: #49B4E4;
+ 
+}
+.logo img {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.pull-right > .dropdown-menu::before {
+  
+  left: 62%;
+ 
+}
+.pull-right > .dropdown-menu li a {
+
+  font-size: 13px;
+  padding: 6px 0 6px 11px;
+  
+}
+.nav > li{margin-right:0px;}
+
+ul.navbar-nav li a{
+     font-size:15px;    
+}
+
+.pull-right > .dropdown-menu li a {
+  font-size: 15px;
+  padding: 10px 13px;
+}
+.pull-right > .dropdown-menu {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+  display: block;
+  left: auto;
+  padding: 0;
+  right: 0;
+  top: -30px;
+  width: 100%;
+}
+.dropdown.pull-right {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  float: none;
+  width: 106%;
+}
+.pull-right > .dropdown-menu::before{
+     display:none;    
+}
+.dropdown a.dropdown-toggle{
+     display:none;    
+}
+.navbar-collapse.in {
+  height: 247px;
+  overflow-y: visible;
+  transition:0.5s;
+}
+.navbar-header {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 49px;
+  padding-left: 7px;
+}
+
+#myCarousel .carousel-control.left {
+ 
+  font-size: 20px;
+  height: 20px;
+  line-height: 18px;
+  top: 40%;
+  width: 20px;
+}
+#myCarousel .carousel-control.right {
+   font-size: 20px;
+  height: 20px;
+  line-height: 18px;
+  top: 40%;
+  width: 20px;
+  z-index:99999;
+}
+#myCarousel .carousel-caption p{
+     display:none;    
+}
+#myCarousel .carousel-caption {
+  left: auto;
+  padding-bottom: 30px;
+  right: 1%;
+  top: 0;
+  width: 44%;
+}
+#myCarousel .carousel-caption h3{
+     font-size:13px;    
+}
+#myCarousel .carousel-caption input {
+  
+  font-size: 12px;
+  height: 26px;
+  margin: 0 8px 0 0;
+  width: 77%;
+}
+#myCarousel .carousel-caption button {
+
+  font-size: 12px;
+  margin-top: 6px;
+  padding: 6px 28%;
+  
+}
+.border2{display:none;}
+.title h2{font-size:26px;}
+.title {
+  margin-bottom: 35px;
+  padding: 30px 0 5px;
+}
+.gridbox {
+  margin-bottom: 31px;
+  position: relative;
+}
+.clientimg > img {
+  display: block;
+  height: 70px;
+  margin: auto;
+  width: 70px;
+}
+.client_slider{padding:0px 0 15px;}
+.client-des p {
+ 
+  font-size: 18px;
+  
+  line-height: 134%;
+}
+.client-des h2 {
+ 
+  font-size: 24px;
+  margin-bottom: 1px;
+}
+.proimg h1{
+     font-size:20px;
+     line-height:31px;
+     width:100%;    
+}
+.product_inner img{
+     width:92%;    
+}
+.pro_desx p{
+     font-size:14px;    
+}
+.product_inner {
+  margin-bottom: 25px;
+}
+#product {
+  margin: 20px 0;
+}
+#price .col-lg-42 {
+  margin-bottom: 20px;
+  margin-right: 0;
+  width: 100%;
+}
+.footeraddr{
+     position:relative;
+     padding:15px;   
+     height:245px; 
+}
+.footer_mail ul li{
+     width:100%;
+     margin:0 0 10px;    
+     font-size:17px;
+     
+}
+#footer .footeraddr address{
+     font-size:17px;
+     padding:21px 0 0;    
+}
+.socil.pull-right {
+  display: block;
+  float: none !important;
+  margin: 12px auto 0;
+  position: relative;
+  text-align: center;
+  width:121px;
+}
+.socil li a {
+ 
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+}
+header{min-height:181px;}
+#myCarousel2 {
+  margin: 0 auto;
+  width: 95%;
+}
+}
+
+/*mobile view*/
+

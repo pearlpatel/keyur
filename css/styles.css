@@ -1,0 +1,685 @@
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url('../fonts/RobotoRegular.eot');
+    src: url('../fonts/RobotoRegular.eot') format('embedded-opentype'),
+         url('../fonts/RobotoRegular.woff2') format('woff2'),
+         url('../fonts/RobotoRegular.woff') format('woff'),
+         url('../fonts/RobotoRegular.ttf') format('truetype'),
+         url('../fo nts/RobotoRegular.svg#RobotoRegular') format('svg');
+}
+@font-face {
+    font-family: 'RobotoThin';
+    src: url('../fonts/RobotoThin.eot');
+    src: url('../fonts/RobotoThin.eot') format('embedded-opentype'),
+         url('../fonts/RobotoThin.woff2') format('woff2'),
+         url('../fonts/RobotoThin.woff') format('woff'),
+         url('../fonts/RobotoThin.ttf') format('truetype'),
+         url('../fonts/RobotoThin.svg#RobotoThin') format('svg');
+}
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('../fonts/OpenSansRegular.eot');
+    src: url('../fonts/OpenSansRegular.eot') format('embedded-opentype'),
+         url('../fonts/OpenSansRegular.woff2') format('woff2'),
+         url('../fonts/OpenSansRegular.woff') format('woff'),
+         url('../fonts/OpenSansRegular.ttf') format('truetype'),
+         url('../fonts/OpenSansRegular.svg#OpenSansRegular') format('svg');
+}
+@font-face {
+    font-family: 'Walkway';
+    src: url('../fonts/Walkway.eot');
+    src: url('../fonts/Walkway.eot') format('embedded-opentype'),
+         url('../fonts/Walkway.woff2') format('woff2'),
+         url('../fonts/Walkway.woff') format('woff'),
+         url('../fonts/Walkway.ttf') format('truetype'),
+         url('../fonts/Walkway.svg#Walkway') format('svg');
+}
+@font-face {
+    font-family: 'WalkwayBold';
+    src: url('../fonts/WalkwayBold.eot');
+    src: url('../fonts/WalkwayBold.eot') format('embedded-opentype'),
+         url('../fonts/WalkwayBold.woff2') format('woff2'),
+         url('../fonts/WalkwayBold.woff') format('woff'),
+         url('../fonts/WalkwayBold.ttf') format('truetype'),
+         url('../fonts/WalkwayBold.svg#WalkwayBold') format('svg');
+}
+
+@font-face {
+    font-family: 'Walkway_Black';
+    src: url('../fonts/Walkway_Black.eot');
+    src: url('../fonts/Walkway_Black.eot') format('embedded-opentype'),
+         url('../fonts/Walkway_Black.woff2') format('woff2'),
+         url('../fonts/Walkway_Black.woff') format('woff'),
+         url('../fonts/Walkway_Black.ttf') format('truetype'),
+         url('../fonts/Walkway_Black.svg#Walkway_Black') format('svg');
+}
+@font-face {
+    font-family: 'HelveticaNeueLight';
+    src: url('../fonts/HelveticaNeueLight.eot');
+    src: url('../fonts/HelveticaNeueLight.eot') format('embedded-opentype'),
+         url('../fonts/HelveticaNeueLight.woff2') format('woff2'),
+         url('../fonts/HelveticaNeueLight.woff') format('woff'),
+         url('../fonts/HelveticaNeueLight.ttf') format('truetype'),
+         url('../fonts/HelveticaNeueLight.svg#HelveticaNeueLight') format('svg');
+}
+@font-face {
+    font-family: 'Walkway_Oblique_Bold';
+    src: url('../fonts/Walkway_Oblique_Bold.eot');
+    src: url('../fonts/Walkway_Oblique_Bold.eot') format('embedded-opentype'),
+         url('../fonts/Walkway_Oblique_Bold.woff2') format('woff2'),
+         url('../fonts/Walkway_Oblique_Bold.woff') format('woff'),
+         url('../fonts/Walkway_Oblique_Bold.ttf') format('truetype'),
+         url('../fonts/Walkway_Oblique_Bold.svg#Walkway_Oblique_Bold') format('svg');
+}
+@font-face {
+    font-family: 'elephantitalic';
+    src: url('../fonts/elephnti-webfont.eot');
+    src: url('../fonts/elephnti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/elephnti-webfont.woff2') format('woff2'),
+         url('../fonts/elephnti-webfont.woff') format('woff'),
+         url('../fonts/elephnti-webfont.ttf') format('truetype'),
+         url('../fonts/elephnti-webfont.svg#elephantitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'elephantregular';
+    src: url('../fonts/elephnt-webfont.eot');
+    src: url('../fonts/elephnt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/elephnt-webfont.woff2') format('woff2'),
+         url('../fonts/elephnt-webfont.woff') format('woff'),
+         url('../fonts/elephnt-webfont.ttf') format('truetype'),
+         url('../fonts/elephnt-webfont.svg#elephantregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'RalewaySemiBold';
+    src: url('../fonts/RalewaySemiBold.eot');
+    src: url('../fonts/RalewaySemiBold.eot') format('embedded-opentype'),
+         url('../fonts/RalewaySemiBold.woff2') format('woff2'),
+         url('../fonts/RalewaySemiBold.woff') format('woff'),
+         url('../fonts/RalewaySemiBold.ttf') format('truetype'),
+         url('../fonts/RalewaySemiBold.svg#RalewaySemiBold') format('svg');
+}
+@font-face {
+    font-family: 'RalewayLight';
+    src: url('../fonts/RalewayLight.eot');
+    src: url('../fonts/RalewayLight.eot') format('embedded-opentype'),
+         url('../fonts/RalewayLight.woff2') format('woff2'),
+         url('../fonts/RalewayLight.woff') format('woff'),
+         url('../fonts/RalewayLight.ttf') format('truetype'),
+         url('../fonts/RalewayLight.svg#RalewayLight') format('svg');
+}
+
+* {
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	background:#fff;
+	font-size:100%;
+	color:#000;
+	line-height:100%;
+	font-style:normal;
+	font-weight:normal;
+}
+input { background:none; border:0 none; outline:none; }
+table {
+	border:0 none;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+td { vertical-align:top; }
+img	{ border:0 none; max-width:100%; }
+a	{ outline:none; cursor:pointer; }
+.left	{ float:left; }
+.right	{ float:right; }
+.clear { clear:both; }
+.text_right { text-align:right; }
+.text_left { text-align:left; }
+.text_center { text-align:center; }
+.text-justify { text-align:justify; }
+.clearfix {
+	clear:both;
+	/*content:" "; never use this property error in opera*/
+	display:block;
+	font-size:inherit;
+	height:0;
+	line-height:0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+	display:block;
+}
+
+/**************** Header ****************/
+header {
+  background: #ffffff none repeat scroll 0 0;
+  padding: 22px 1px;
+  box-shadow:1px 0 9px 0 #ccc;
+  position:relative;
+  z-index:999;
+}
+ul.navbar-nav  li a
+{
+         font-family: 'OpenSansRegular'; 
+         color:#333;
+         font-size:18px; 
+         text-transform:uppercase;
+}
+.dropdown a.dropdown-toggle {
+  border: 1px solid #cccccc;
+  border-radius: 1000%;
+  color: #000000;
+  padding: 15px 16px;
+}
+.dropdown {
+  margin-top: 14px;
+  padding-bottom:17px;
+}
+.dropdown a.dropdown-toggle .fa.fa-user{
+     font-size:20px;
+}
+.nav > li {
+  margin: 0 26px 0 0;
+
+}
+/**************** Close ****************/
+
+
+/**************** Content ****************/
+.carousel-control.right {
+  background:#fff;
+  background-repeat: repeat-x;
+  left: auto;
+  right: 0;
+}
+.carousel-control.left {
+  background: #fff;
+  background-repeat: repeat-x;
+}
+/**************** Close ****************/
+.title {
+  margin-bottom: 42px;
+  padding: 36px 0 5px;
+}
+.title h2
+{
+     color:#a0adba;
+     font-size:34px;
+     text-align:center;
+       font-family: 'WalkwayBold';  
+}
+.gridimg {
+  border: 2px solid #cccccc;
+  border-radius: 100%;
+  height: 100px;
+  line-height: 93px;
+  text-align: center;
+  width: 100px;
+  margin:0 auto;
+  display:block;
+}
+.griddescription{
+     text-align:center;    
+}
+.griddescription h4 {
+  color: #222222;
+  font-family: "WalkwayBold";
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin: 11px 0;
+  text-transform: capitalize;
+}
+.griddescription p{
+     color:#adb3b6;
+     font-size:16px;
+     font-weight:500;
+ 
+       font-family: 'RobotoRegular';
+      
+      line-height:100%;
+}
+.howitwork{
+     background:url(../images/box_shadowbanner.png) no-repeat center top #fff;   
+     padding-bottom:54px;
+      
+}
+.gridbox{position:relative;}
+.border2 {
+
+  height: 3px;
+  left: -85px;
+  position: absolute;
+  top: 51px;
+  width: 55%;
+  background:url(../images/border.jpg) no-repeat left top;
+}   
+.client_slider{
+     background:url(../images/client_banner.jpg) no-repeat center top #191315;
+     padding:105px 0;
+}
+.clientimg > img {
+  height: 113px;
+  width: 107px;
+}
+.client-des h2 {
+  color: #ffffff;
+  font-family: "Walkway_Black";
+  font-size: 28px;
+  font-weight: normal;
+  letter-spacing: 2.5px;
+  margin-bottom: 20px;
+}
+.client-des p {
+  color: #cccccc;
+  font-family: "HelveticaNeueLight";
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 157%;
+}
+#myCarousel2 {
+  margin: 0 auto;
+  width: 74%;
+}
+.clientimg {
+  margin: 13px 0 0;
+}
+.proimg h1 {
+  bottom: 0;
+  color: #ffffff;
+  display: block;
+  font-family: "elephantitalic";
+  font-size: 40px;
+  height: 65px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  background:url(../images/border_botttom.jpg) no-repeat center bottom;
+  padding-bottom:25px;
+}
+.proimg {
+  position: relative;
+  text-align: center;
+}
+.proimg img{margin:auto;}
+.pro_desx {
+  border: 1px solid #cccccc;
+  margin-top: -212px;
+  padding: 230px 20px 28px;
+  text-align: center;
+   font-family: 'Walkway_Oblique_Bold';
+}
+.pro_desx p {
+  color: #222222;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 144%;
+}
+#product{
+     margin:80px 0;    
+}
+
+/**************** Footer ****************/
+     {
+     position:relative;    
+}
+#myCarousel .carousel-caption {
+  left: auto;
+  padding-bottom: 30px;
+  right: 20%;
+  top: 34%;
+  width: 24%;
+}
+/**************** Close ****************/
+#myCarousel .carousel-control.left{
+    background: #29b7da none repeat scroll 0 0;
+  border-radius: 100%;
+  font-size: 50px;
+  height: 61px;
+  line-height: 51px;
+  position: absolute;
+  left: 1%;
+  top: 40%;
+  width: 61px;
+}
+#myCarousel .carousel-control.right {
+  background: #29b7da none repeat scroll 0 0;
+  border-radius: 100%;
+  font-size: 50px;
+  height: 61px;
+  line-height: 51px;
+  position: absolute;
+  right: 1%;
+  top: 40%;
+  width: 61px;
+}
+#myCarousel .carousel-caption h3 {
+  color: #000000;
+  font-family: 'RalewaySemiBold';
+  font-size: 37px;
+  letter-spacing: 2.5px;
+  margin: 0 0 10px;
+  text-align: left;
+  text-shadow: none;
+  
+}
+#myCarousel .carousel-caption p {
+  color: #b2b2b2;
+  font-family: "RalewayLight";
+  font-size: 18px;
+  line-height: 172%;
+  margin: 0 0 25px;
+  text-align: left;
+  text-shadow: none;
+}
+#myCarousel .carousel-caption input {
+  border: 1px solid #cccccc;
+  height: 52px;
+  margin: 0 8px 0 0;
+  width: 310px;
+  color: #000;
+  font-size: 27px;
+   float:left;
+}#myCarousel .carousel-caption button {
+  background: #36cb74 none repeat scroll 0 0;
+  font-size: 25px;
+  text-transform: capitalize;
+  padding: 6px 25px;
+  position:relative;
+  z-index:1;
+  float:left;
+}
+#price{
+     background:#F9FAFB;
+     padding:0px 0 72px;
+     
+}
+.pricbox {
+  background: #ffffff none repeat scroll 0 0;
+  padding: 24px;
+  box-shadow:0px 0px 3px 0px #ccc;
+  
+}
+.pricbox h2 {
+  color: #000;
+font-family: "WalkwayBold";
+  font-size: 32px;
+  font-weight: normal;
+  margin: 15px 0 66px;
+  background:url(../images/wash_border.jpg) no-repeat center bottom;
+  padding-bottom:15px;
+  
+}
+.pricbox .price {
+  color: #31bd6c;
+  display: block;
+  font-family: "elephantregular";
+  font-size: 45px;
+  padding: 1px 0 24px;
+}
+.pricbox .p_name {
+  color: #666;
+   font-family:"Walkway_Oblique_Bold";
+   margin:14px 0; 
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 144%;
+}
+.pricbox .order {
+  background: #ffffff none repeat scroll 0 0;
+  border: 1px solid #31bd6c;
+  color: #31bd6c;
+  font-size: 19px;
+  margin: 15px 0 5px;
+  padding: 6px 32px;
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+#price .col-lg-42 {
+  margin-right: 68px;
+  width: 28%;
+}
+.title h2::before {
+  border-bottom: 2px solid #EBEBEB;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 0;
+  margin: auto;
+  position: relative;
+  right: 0;
+  top: 47px;
+  width: 7%;
+}
+.overbox{
+     background:rgba(0,0,0,0.7);
+     position:absolute;
+     left:0px;
+     top:0px;
+     height:100%;
+     width:100%;    
+}
+#footer iframe{
+     position:relative;    
+}
+.footeraddr {
+  background: #333333 none repeat scroll 0 0;
+  bottom: 0;
+  height:219px;
+  max-width: 700px;
+  padding: 40px 40px 60px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 999999999;
+}
+.footer_mail ul li {
+  color: #666666;
+  float: left;
+  font-size: 20px;
+  
+  width: 50%;
+}
+.socil.pull-right {
+  margin-top: -39px;
+}
+.footer_mail ul li a{
+     text-decoration:none; 
+     color: #666666;   
+}
+.footer_mail ul li span {
+  color: #474646;
+  font-weight: bold;
+  margin-right: 15px;
+  font-size: 24px;
+}
+.footer_mail ul li.call span{
+ font-size:30px;   
+}
+#footer .footeraddr address span {
+  float: left;
+  height: 97px;
+   color: #474646;
+  font-weight: bold;
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+#footer .footeraddr address {
+  color: #666666;
+  display: block;
+  font-size: 20px;
+  padding: 40px 0 0;
+}
+.socil ul li{
+     float:left;
+     margin:0 8px;
+       
+}
+.socil li a {
+  background:#393B3E;
+  border-radius: 100%;
+  display: block;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.nav > li > a:focus, .nav > li > a:hover, .nav > li.active > a {
+  background-color: #2ec4ef;
+ 
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+ background-color: #2ec4ef;
+  color: #fff !important;
+  text-decoration: none;
+}
+.pull-right > .dropdown-menu {
+  left: auto;
+  right: 0;
+  padding: 0;
+}
+.pull-right > .dropdown-menu li a {
+  color: #333333;
+  font-family: "OpenSansRegular";
+  font-size: 15px;
+  padding: 6px 18px;
+  text-transform: uppercase;
+}
+.gridimg:hover {
+  border: 2px solid #ae67c3;
+  box-shadow: 0 0 0 6px #ae67c3;
+  transition: all 0.5s ease 0s;
+}
+.navbar-nav > li:hover::before , .navbar-nav > li.active::before{
+  opacity: 1;
+  transform: translateY(5px);
+}
+.navbar-nav > li:before {
+  background: rgba(0, 0, 0, 0) radial-gradient(ellipse at center center , rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%) repeat scroll 0 0;
+  content: "";
+  height: 10px;
+  left: 5%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+  width: 90%;
+  z-index: -1;
+}
+.pricbox .order:hover::before, .pricbox .order:focus::before, .pricbox .order:active::before {
+  transform: scaleX(1);
+    border-radius:7px;
+}
+.pricbox .order::before {
+  background: #191315;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scaleX(0);
+  transform-origin: 50% 50% 0;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  z-index: -1;
+  color:#fff;
+}
+.pricbox .order:hover{
+  color:#ffffff;
+  border-radius:8px;  
+   border:1px solid #fff;    
+}
+#myCarousel .carousel-caption button:hover{
+  color:#ffffff;  
+  border:1px solid #fff; 
+  
+}
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+  line-height: 1;
+  margin: auto;
+}
+.pull-right > .dropdown-menu::before {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #cccccc;
+  border-style: solid;
+  border-width: 9px;
+  content: "";
+  left: 42%;
+  position: absolute;
+  top: -19px;
+}
+.pull-right > .dropdown-menu {
+  left: auto;
+  padding: 0;
+  right: -59px;
+  top: 54px;
+}
+#myCarousel .carousel-caption button::before {
+  background: #000000 none repeat scroll 0 0;
+  border-radius: 5px;
+  content: "";
+  display: block;
+  height:100%;
+  left: 0;
+  position: absolute;
+  top: -1px;
+  width: 0;
+  z-index:-1;
+}
+#myCarousel .carousel-caption button:hover::before {
+  transition: all 0.5s ease 0s;
+  width: 100%;
+}
+.navbar-header{font-size:0px;}
