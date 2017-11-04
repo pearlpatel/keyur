@@ -1,5 +1,5 @@
 <?php if(!isset($_SESSION['user'])):
-	$this->Url->redirect(ADMIN_URL.'login/');
+	//$this->Url->redirect(ADMIN_URL.'login/');
  endif;
  require_once('head.php');?>
 <body class="skin-black">

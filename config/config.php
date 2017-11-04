@@ -15,7 +15,7 @@ define('SITE_PHONE', '');
 // Global Setting
 define('BASE_PATH', dirname(dirname(__FILE__)));
 
-define('BASE_URL', 'http://rapidllc.online/appAdmin/');
+define('BASE_URL', 'http://localhost/keyurWork/');
 
 define('INDEX', 'index.php');
 
@@ -39,11 +39,11 @@ error_reporting(0);
 
 define('DEBUG_MODE', true);
 
-define('DB_NAME', 'djwor5ey_appadmin');
+define('DB_NAME', 'keyur_app');
 
-define('DB_USER', 'djwor5ey');
+define('DB_USER', 'root');
 
-define('DB_PASSWORD', '$PRELAX$cozer99');
+define('DB_PASSWORD', '');
 
 define('DB_HOST', 'localhost');
 
@@ -68,8 +68,8 @@ define('DIR_VIEW',DIR_APP.DS.'views');
 define('DIR_LIBRARY',BASE_PATH.DS.'lib');
 
 define('UPLOAD_DIR','uploads');
-
-define('UPLOAD_LOGO','uploads/logo/');
+define('PICTURE_DIR',BASE_URL.'uploads/');
+define('UPLOAD_ICON','uploads/cat_icon/');
 define('UPLOAD_ICON','uploads/icon/');
 define('UPLOAD_BANNER','uploads/promoBanners/');
 

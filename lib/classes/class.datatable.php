@@ -39,7 +39,7 @@ class Datatable{
 				$FieldName=mysql_field_name($ResultSet,$i)
 				or
 				die(mysql_error()."<br>");
-				if($FieldName=='Logo'){
+				if($FieldName=='ProfilePic' || $FieldName=='Icon'){
 					$chk=$i;
 				}
 				if($FieldName=='AcName'){
