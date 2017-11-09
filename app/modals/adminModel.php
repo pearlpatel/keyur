@@ -1,7 +1,6 @@
 <?php
 
 class AdminModel extends Modal{
-
 	public function __construct(){
 		parent::__construct();
 	}	

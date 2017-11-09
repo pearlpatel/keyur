@@ -1,4 +1,4 @@
-<style>.form-control{width:50%}</style>
+<style>.form-control{width:50%}</style> 
  <section class="content-header">
     <h1> Themes  </h1>
     <ol class="breadcrumb">

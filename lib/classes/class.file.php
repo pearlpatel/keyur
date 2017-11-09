@@ -74,7 +74,7 @@
 				$image_source = imagecreatefrompng($_FILES[$objName]["tmp_name"]);
 			}
 			
-			echo $remote_file = 'uploads/greed_preview/'.$_FILES[$objName]["name"];
+			$remote_file = 'uploads/greed_preview/'.$_FILES[$objName]["name"];
 			imagejpeg($image_source,$remote_file,100);
 			chmod($remote_file,0644);
 			

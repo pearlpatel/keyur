@@ -47,17 +47,6 @@ class Admin extends Controller{
 		$this->Template->setContent($content);
 		$this->Template->render();
 	}
-	public function category1(){
-		$data = array();
-		$result = $this->Modal->getCategoryDetail();
-		$data['userList'] = $result;
-		$header = $this->load_view('admin/templates/header');
-		$footer = $this->load_view('admin/templates/footer');
-		$this->Template->setTemplate($header,$footer);
-		$content = $this->load_view('admin/app_views/category',$data);
-		$this->Template->setContent($content);
-		$this->Template->render();
-	}
 	public function category(){
 		$data = array();
 		$result = $this->Modal->getCategoryDetail();

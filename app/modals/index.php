@@ -4,4 +4,5 @@ class IndexModal extends Modal{
 		parent::__construct();	
 		//$this->Database->ExecuteQuery($query);
 	}
+
 }

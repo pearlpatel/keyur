@@ -49,9 +49,9 @@ class ThemeModel extends Modal{
 		else:
 			$join_date =date('Y-m-d h:i:s');	
 			if(isset($themeUpdateId) && $themeUpdateId):
-				echo $query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeUpdateId'";					
+				$query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeUpdateId'";					
 			else:
-				echo $query = "INSERT INTO ThemeMaster (CId, Name, Description, Preview, Images, Video, PostedDate, NoOfPhoto, NoOfVideo, NoOfText) VALUES ($Input[drpCatId], '$Input[txtThemeName]',  '$Input[txtDesc]', '$image', '$images', '$video', NOW(), '$Input[txtNoOfPhoto]', '$Input[txtNoOfVideo]', '$Input[txtNoOfText]')";					
+				$query = "INSERT INTO ThemeMaster (CId, Name, Description, Preview, Images, Video, PostedDate, NoOfPhoto, NoOfVideo, NoOfText) VALUES ($Input[drpCatId], '$Input[txtThemeName]',  '$Input[txtDesc]', '$image', '$images', '$video', NOW(), '$Input[txtNoOfPhoto]', '$Input[txtNoOfVideo]', '$Input[txtNoOfText]')";					
 			endif;
 			if($this->Database->ExecuteNoneQuery($query) == 1):
 				return true;
@@ -59,11 +59,6 @@ class ThemeModel extends Modal{
 				return false;
 			endif;
 		endif;
-	}
-	public function getThemeInfo($themeId){
-		$query = "SELECT a.Id,AppName,PackageName,Description,Logo,PromoBanner,Icon,Views,Downloads,AppStatus,AcName FROM ThemeMaster a, CategoryMaster d WHERE a.DAId=d.Id AND a.Id='$appId'";
-		$rsDetail =$this->Database->ExecuteQuery($query);
-		return $rsDetail;
 	}
 }
 ?>

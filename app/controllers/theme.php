@@ -59,7 +59,6 @@ class Theme extends Controller{
 					$newFileName=time().$_FILES["imagePreview2"]["name"][$key];
 					$fileName = $_FILES["imagePreview2"]["name"][$key];
 					
-					//$newfilename = time().$fileName;
 					/*if($_FILES['imagePreview2']["type"][$key] == "image/jpeg" || $_FILES['imagePreview2']["type"][$key] == "image/pjpeg"){	
 						$image_source = imagecreatefromjpeg($_FILES[$objName]["tmp_name"][$key]);
 					}		
