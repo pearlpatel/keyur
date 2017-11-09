@@ -50,7 +50,7 @@
 			}
 		}
 		// Upload File return:file Url on success
-		public function UploadFile($objName,$fileName = false){
+		public function resizeFile($objName,$newfilename,$fileName = false){
 			if($fileName){
 				$aryTemp =  explode('.',$_FILES[$objName]['name']);
 				if(count($aryTemp) > 1){
@@ -60,10 +60,40 @@
 			}else{
 				$fileName = $_FILES[$objName]['name'];
 			}
-			$newfilename = time().$fileName;
+			//$newfilename = time().$fileName;
+			if($_FILES[$objName]["type"] == "image/jpeg" || $_FILES[$objName]["type"] == "image/pjpeg"){	
+				$image_source = imagecreatefromjpeg($_FILES[$objName]["tmp_name"]);
+			}		
+			if($_FILES[$objName]["type"] == "image/gif"){	
+				$image_source = imagecreatefromgif($_FILES[$objName]["tmp_name"]);
+			}	
+			if($_FILES[$objName]["type"] == "image/bmp"){	
+				$image_source = imagecreatefromwbmp($_FILES[$objName]["tmp_name"]);
+			}			
+			if($_FILES[$objName]["type"] == "image/x-png"){
+				$image_source = imagecreatefrompng($_FILES[$objName]["tmp_name"]);
+			}
+			
+			echo $remote_file = 'uploads/greed_preview/'.$_FILES[$objName]["name"];
+			imagejpeg($image_source,$remote_file,100);
+			chmod($remote_file,0644);
+			
+			list($image_width, $image_height) = getimagesize($_FILES[$objName]["tmp_name"]);
+			$new_width=floor(($image_width*20)/100);
+			$new_height=floor(($image_height/$image_width)*$new_width);
+		
+			$new_image = imagecreatetruecolor($new_width , $new_height);
+			$image_source = imagecreatefromjpeg($remote_file);
+			
+			imagecopyresampled($new_image, $image_source, 0, 0, 0, 0, $new_width, $new_height, $image_width, $image_height);
+			imagejpeg($new_image,$newfilename,100);
+			unlink($remote_file);
+		}
+		public function UploadFile($objName,$newfilename,$fileName = false){
 			move_uploaded_file($_FILES[$objName]['tmp_name'],$this->_uploadPath.$newfilename);
 			$fileLoction = $this->_uploadPath.$newfilename;
+			
 			return $fileLoction;
-		}
+		}		
 	}
 ?>

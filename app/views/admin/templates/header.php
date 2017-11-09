@@ -4,7 +4,7 @@
  require_once('head.php');?>
 <body class="skin-black">
 <header class="header">
-            <a href="" class="logo">App Admin</a>
+            <a href="" class="logo">Artwiz</a>
             <nav class="navbar navbar-static-top" role="navigation">
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>

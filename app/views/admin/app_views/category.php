@@ -9,7 +9,7 @@
 <?php
 $url = $this->Url->getUrlSegment();
 $GET = explode('/',$url);
-$dId = isset($GET[1]) && is_numeric($GET[1]) ? $GET[1]:'';
+$cId = isset($GET[1]) && is_numeric($GET[1]) ? $GET[1]:'';
 $updateId = isset($GET[2]) && is_numeric($GET[2]) ? $GET[2]:'';
 if($updateId) {$formStatus="in";}else{$formStatus="";}
 ?>
@@ -99,7 +99,7 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 	jQuery(document).ready(function(e) {
 		setMenu('catMenu', '');
 		$("#collapseTwo").addClass("<?php echo $formStatus;?>");
-		$("#btnCancel").click(function(){$("#collapseTwo").removeClass("in");$("#drpDevAppId").val("");});
+		$("#btnCancel").click(function(){$("#collapseTwo").removeClass("in");});
 		$('[data-tab="section-tab"] > li > a:first').tab('show');		
 		$("#btnCancel").click(function(){ 
 			 window.location.href='http://rapidllc.online/appAdmin/index.php/admin/app';

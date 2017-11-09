@@ -18,23 +18,17 @@ class Form{
 
 		$this->Method = 'POST';
 
-		
-
 		$this->requiredControls = array();
 
 		$this->FormHtml = '';
 
 	}
 
-	
-
 	public function setValidationControls($contoller){
 
 		$this->requiredControls = $contoller;	
 
 	}
-
-	
 
 	public function Reset(){
 
@@ -268,15 +262,15 @@ class Form{
 
 				break;
 
-			case 'file':
+			/*case 'file':
 
-					if(empty($value) || (! isset($value))):
+					/*if(empty($value) || (! isset($value))):
 
 						$errorMessage = 'Please Fill '.$label.'';
 
 					endif;
 
-				break;
+				break;*/
 
 		endswitch;
 
@@ -404,9 +398,9 @@ class Form{
 
 					endif;
 
-				elseif($control[1] == 'file'):
+				/*elseif($control[1] == 'file'):
 
-					if(isset($_FILES[$control[0]])):
+					/*if(isset($_FILES[$control[0]])):
 
 						if((!$this->validateControl($_FILES[$control[0]]['name'],$control[1]) == '') || (! is_array($control)) ):
 
@@ -418,7 +412,7 @@ class Form{
 
 						return false;
 
-					endif;
+					endif;*/
 
 				else: // If Control is not set
 

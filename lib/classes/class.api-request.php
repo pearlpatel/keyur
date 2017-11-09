@@ -12,7 +12,8 @@ class ApiRequest{
         200 => 'OK',
 	   201 => 'Created',
 	   204 =>	'No Content',
-	   408 =>	'No Content',
+	   208 =>	'No Content',
+	   302 => 'Conflict',
 	   304 => 'Not Modified',
         400 => 'Bad Request',
         401 => 'Unauthorized User',
@@ -22,8 +23,12 @@ class ApiRequest{
 	   405 => 'Method Not Allowed',
 	   406 => 'Not Acceptable',
 	   407 => 'User already exist',
+	   408 => 'EmailId already exist',
+	   409 => 'PhoneNo already exist',
+	   411 => 'Valid Signup',
+	   410 => 'User already exist',
 	   420 => 'Method Failure',
-	   409 => 'Conflict',	
+	   
         500 => 'Internal Server Error',
         501 => 'Not Implemented',
 	   // System Problem

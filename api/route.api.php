@@ -8,34 +8,40 @@ $api_route['index'] = new ApiRequest(
 								'uid'=>array('type'=>'number','required'=>true)
 							)
 						);
-$api_route['setpriority'] = new ApiRequest(
-							'appdev/setpriority',
+$api_route['checksignup'] = new ApiRequest(
+							'login/checksignup',
 							'POST',
 							false, 
 							array(
-								'aId'=>array('type'=>'number','required'=>true),
-								'lId'=>array('type'=>'text','required'=>true),
-								'index'=>array('type'=>'text','required'=>true)
+								'email'=>array('type'=>'email','required'=>true),
+								'phone'=>array('type'=>'number','required'=>true)																
 							)
 						);
-$api_route['linkdevapp'] = new ApiRequest(
-							'appdev/linkdevapp',
+$api_route['usersignup'] = new ApiRequest(
+							'login/usersignup',
 							'POST',
 							false, 
 							array(
-								'aId'=>array('type'=>'number','required'=>true),
-								'lId'=>array('type'=>'text','required'=>true)
+								'email'=>array('type'=>'email','required'=>true),
+								'phone'=>array('type'=>'number','required'=>true),
+								'deviceid'=>array('type'=>'text','required'=>true),
+								'username'=>array('type'=>'text','required'=>true),
+								'profilepic'=>array('type'=>'text','required'=>true),
+								'status'=>array('type'=>'text','required'=>true)
 							)
-						);
-$api_route['unlinkdevapp'] = new ApiRequest(
-							'appdev/unlinkdevapp',
+						);					
+$api_route['relogin'] = new ApiRequest(
+							'login/relogin',
 							'POST',
 							false, 
 							array(
-								'aId'=>array('type'=>'number','required'=>true),
-								'lId'=>array('type'=>'text','required'=>true)
+								'email'=>array('type'=>'email','required'=>true),
+								'phone'=>array('type'=>'number','required'=>true),
+								'deviceid'=>array('type'=>'text','required'=>true)
 							)
 						);
+
+
 $api_route['setview'] = new ApiRequest(
 							'appdev/setview',
 							'POST',

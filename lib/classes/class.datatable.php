@@ -39,13 +39,13 @@ class Datatable{
 				$FieldName=mysql_field_name($ResultSet,$i)
 				or
 				die(mysql_error()."<br>");
-				if($FieldName=='ProfilePic' || $FieldName=='Icon'){
+				if($FieldName=='ProfilePic' || $FieldName=='Icon' || $FieldName=='Preview' ){
 					$chk=$i;
 				}
 				if($FieldName=='AcName'){
 					$FieldName="Account Name";
 				}
-				if($FieldName=='AppStatus'){
+				if($FieldName=='AppStatus' || $FieldName=='ThemeStatus'){
 					$appStatus=$i;
 				}else{
 					$html .= "<th><label>".$FieldName."</label></th>";

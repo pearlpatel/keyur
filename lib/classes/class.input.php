@@ -72,17 +72,17 @@ class Input {
 				// If Centent Type is "application/json"
 					$input = urldecode(file_get_contents('php://input'));
 					 //For Testing in client
-					/*$Obje2 = explode('&',$input);
+					$Obje2 = explode('&',$input);
 					if(count($Obje2)>=1){
 						foreach($Obje2 as $param){
 							$temp = array();
 							$temp = explode('=',$param);
 							$Values[$temp[0]] = $temp[1];
 						}
-					}*/
+					}
 
 					// For Live (android Apps)
-					$Values = json_decode($input);
+					//$Values = json_decode($input);
 					
 					// Converting Object into Array
 					$Values = (array)$Values;
