@@ -50,9 +50,18 @@ class Theme extends Controller{
 			if(empty($_FILES['Video']['name']) && $GET[1]=='update'):
 				$video=$Input['video'];
 			else:
-				$newFileName=UPLOAD_THEME_VIDEO.time().$_FILES['Video']['name'];                
-				move_uploaded_file($_FILES["Video"]["tmp_name"][$key],$newFileName);
-				$video=$newFileName;
+				//$newFileName='uploads/theme_video/'.time().basename($_FILES['Video']['name']);                
+				//move_uploaded_file($_FILES["Video"]["tmp_name"][$key],$newFileName);
+				//$video=$newFileName;
+				
+				$target_dir = "uploads/theme_video/";
+
+				$target_file = $target_dir . basename($_FILES["Video"]["name"]);
+				
+				$video_path=$_FILES['Video']['name'];
+				
+				move_uploaded_file($_FILES["Video"]["tmp_name"],$target_file);
+
 			endif;
 			$images='';			
 			foreach($_FILES["imagePreview2"]["tmp_name"] as $key=>$tmp_name)
