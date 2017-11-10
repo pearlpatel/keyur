@@ -58,36 +58,42 @@ class Theme extends Controller{
 			{	
 					$newFileName=time().$_FILES["imagePreview2"]["name"][$key];
 					$fileName = $_FILES["imagePreview2"]["name"][$key];
-					
-					/*if($_FILES['imagePreview2']["type"][$key] == "image/jpeg" || $_FILES['imagePreview2']["type"][$key] == "image/pjpeg"){	
-						$image_source = imagecreatefromjpeg($_FILES[$objName]["tmp_name"][$key]);
-					}		
-					if($_FILES['imagePreview2']["type"][$key] == "image/gif"){	
-						$image_source = imagecreatefromgif($_FILES['imagePreview2']["tmp_name"][$key]);
-					}	
-					if($_FILES['imagePreview2']["type"][$key] == "image/bmp"){	
-						$image_source = imagecreatefromwbmp($_FILES['imagePreview2']["tmp_name"][$key]);
-					}			
-					if($_FILES['imagePreview2']["type"][$key] == "image/x-png"){
-						$image_source = imagecreatefrompng($_FILES['imagePreview2']["tmp_name"][$key]);
+					switch(strtolower($_FILES["imagePreview2"]['type'][$key]))
+					{
+						case 'image/jpeg':
+							$image = imagecreatefromjpeg($_FILES["imagePreview2"]['tmp_name'][$key]);
+							break;
+						case 'image/png':
+							$image = imagecreatefrompng($_FILES["imagePreview2"]['tmp_name'][$key]);
+							break;
+						case 'image/gif':
+							$image = imagecreatefromgif($_FILES["imagePreview2"]['tmp_name'][$key]);
+							break;
+						default:
+							exit('Unsupported type: '.$_FILES["imagePreview2"]['type'][$key]);
 					}
-					
-					$remote_file = UPLOAD_GREED_IMAGES.$_FILES['imagePreview2']["name"][$key];
-					imagejpeg($image_source,$remote_file,100);
-					chmod($remote_file,0644);
-					*/
-					/*list($image_width, $image_height) = getimagesize($_FILES['imagePreview2']["tmp_name"][$key]);
+					// Target dimensions
+					list($image_width, $image_height) = getimagesize($_FILES["imagePreview2"]["tmp_name"][$key]);
 					$new_width=floor(($image_width*20)/100);
 					$new_height=floor(($image_height/$image_width)*$new_width);
-				
-					$new_image = imagecreatetruecolor($new_width , $new_height);
-					$image_source = imagecreatefromjpeg($remote_file);
+					// Get current dimensions
+					$old_width  = imagesx($image);
+					$old_height = imagesy($image);
 					
-					imagecopyresampled($new_image, $image_source, 0, 0, 0, 0, $new_width, $new_height, $image_width, $image_height);
-					imagejpeg($new_image,UPLOAD_GREED_IMAGES.$newfilename,100);*/
-					//unlink($remote_file);
-					//$this->File->resizeFile('imagePreview',UPLOAD_GREED_IMAGES.$newfilename);
-					$newFileName=UPLOAD_THEME_IMAGES.$newFileName;
+					// Create new empty image
+					$new = imagecreatetruecolor($new_width, $new_height);
+					
+					// Resize old image into new
+					imagecopyresampled($new, $image, 0, 0, 0, 0, $new_width, $new_height, $old_width, $old_height);
+					$new_name=time().$_FILES["imagePreview2"]['name'][$key];
+					// Catch the imagedata
+					ob_start();
+					imagejpeg($new, 'uploads/greed_images/'.$new_name, 90);
+					// Destroy resources
+					imagedestroy($image);
+					imagedestroy($new);
+					
+					$newFileName=UPLOAD_THEME_IMAGES.$new_name;
 					move_uploaded_file($_FILES["imagePreview2"]["tmp_name"][$key],$newFileName);
 					if($images==''){$images=$newFileName;
 					}else{
