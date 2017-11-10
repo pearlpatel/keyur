@@ -39,7 +39,8 @@ class Theme extends Controller{
 			else:
 				//$newfilename = time().$_FILES['imagePreview']['name'];
 				$newfilename=$this->File->resizeFile('imagePreview');
-				
+				/*$newFileName='/uploads/theme_preview/'.$newfilename;
+				move_uploaded_file($_FILES["imagePreview"]["tmp_name"],$newfilename);*/
 				$upload_dir = BASE_PATH.UPLOAD_THEME_PREVIEW;
 				$this->File->Reset($upload_dir);
 				$image = $this->File->UploadFile('imagePreview',$newfilename);
@@ -69,8 +70,6 @@ class Theme extends Controller{
 						case 'image/gif':
 							$image = imagecreatefromgif($_FILES["imagePreview2"]['tmp_name'][$key]);
 							break;
-						default:
-							exit('Unsupported type: '.$_FILES["imagePreview2"]['type'][$key]);
 					}
 					// Target dimensions
 					list($image_width, $image_height) = getimagesize($_FILES["imagePreview2"]["tmp_name"][$key]);
@@ -93,7 +92,7 @@ class Theme extends Controller{
 					imagedestroy($image);
 					imagedestroy($new);
 					
-					$newFileName=UPLOAD_THEME_IMAGES.$new_name;
+					$newFileName='uploads/theme_images/'.$new_name;
 					move_uploaded_file($_FILES["imagePreview2"]["tmp_name"][$key],$newFileName);
 					if($images==''){$images=$newFileName;
 					}else{
