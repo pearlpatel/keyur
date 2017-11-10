@@ -38,7 +38,7 @@ class Theme extends Controller{
 				$image=$Input['imagepreview'];
 			else:
 				//$newfilename = time().$_FILES['imagePreview']['name'];
-				$newfilename=$this->File->resizeFile('imagePreview',UPLOAD_GREED_PREVIEW);
+				$newfilename=$this->File->resizeFile('imagePreview');
 				
 				$upload_dir = BASE_PATH.UPLOAD_THEME_PREVIEW;
 				$this->File->Reset($upload_dir);
