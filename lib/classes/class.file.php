@@ -50,44 +50,42 @@
 			}
 		}
 		// Upload File return:file Url on success
-		public function resizeFile($objName,$newfilename,$fileName = false){
-			if($fileName){
-				$aryTemp =  explode('.',$_FILES[$objName]['name']);
-				if(count($aryTemp) > 1){
-					$fileExtension = end($aryTemp);
-					$fileName = $fileName.'.'.$fileExtension;	
-				}
-			}else{
-				$fileName = $_FILES[$objName]['name'];
+		public function resizeFile($objName,$path,$fileName = false){
+			switch(strtolower($_FILES[$objName]['type']))
+			{
+				case 'image/jpeg':
+					$image = imagecreatefromjpeg($_FILES[$objName]['tmp_name']);
+					break;
+				case 'image/png':
+					$image = imagecreatefrompng($_FILES[$objName]['tmp_name']);
+					break;
+				case 'image/gif':
+					$image = imagecreatefromgif($_FILES[$objName]['tmp_name']);
+					break;
+				default:
+					exit('Unsupported type: '.$_FILES[$objName]['type']);
 			}
-			//$newfilename = time().$fileName;
-			if($_FILES[$objName]["type"] == "image/jpeg" || $_FILES[$objName]["type"] == "image/pjpeg"){	
-				$image_source = imagecreatefromjpeg($_FILES[$objName]["tmp_name"]);
-			}		
-			if($_FILES[$objName]["type"] == "image/gif"){	
-				$image_source = imagecreatefromgif($_FILES[$objName]["tmp_name"]);
-			}	
-			if($_FILES[$objName]["type"] == "image/bmp"){	
-				$image_source = imagecreatefromwbmp($_FILES[$objName]["tmp_name"]);
-			}			
-			if($_FILES[$objName]["type"] == "image/x-png"){
-				$image_source = imagecreatefrompng($_FILES[$objName]["tmp_name"]);
-			}
-			
-			$remote_file = 'uploads/greed_preview/'.$_FILES[$objName]["name"];
-			imagejpeg($image_source,$remote_file,100);
-			chmod($remote_file,0644);
-			
+			// Target dimensions
 			list($image_width, $image_height) = getimagesize($_FILES[$objName]["tmp_name"]);
 			$new_width=floor(($image_width*20)/100);
 			$new_height=floor(($image_height/$image_width)*$new_width);
-		
-			$new_image = imagecreatetruecolor($new_width , $new_height);
-			$image_source = imagecreatefromjpeg($remote_file);
+			// Get current dimensions
+			$old_width  = imagesx($image);
+			$old_height = imagesy($image);
 			
-			imagecopyresampled($new_image, $image_source, 0, 0, 0, 0, $new_width, $new_height, $image_width, $image_height);
-			imagejpeg($new_image,$newfilename,100);
-			unlink($remote_file);
+			// Create new empty image
+			$new = imagecreatetruecolor($new_width, $new_height);
+			
+			// Resize old image into new
+			imagecopyresampled($new, $image, 0, 0, 0, 0, $new_width, $new_height, $old_width, $old_height);
+			// Catch the imagedata
+			ob_start();
+			$newFileName=time().$_FILES[$objName]["name"];
+			imagejpeg($new, $path.$newFileName, 90);
+			// Destroy resources
+			imagedestroy($image);
+			imagedestroy($new);
+			return $newFileName;
 		}
 		public function UploadFile($objName,$newfilename,$fileName = false){
 			move_uploaded_file($_FILES[$objName]['tmp_name'],$this->_uploadPath.$newfilename);

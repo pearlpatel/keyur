@@ -37,8 +37,8 @@ class Theme extends Controller{
 			if(empty($_FILES['imagePreview']['name']) && $GET[1]=='update'):
 				$image=$Input['imagepreview'];
 			else:
-				$newfilename = time().$_FILES['imagePreview']['name'];
-				$this->File->resizeFile('imagePreview',UPLOAD_GREED_PREVIEW.$newfilename);
+				//$newfilename = time().$_FILES['imagePreview']['name'];
+				$newfilename=$this->File->resizeFile('imagePreview',UPLOAD_GREED_PREVIEW);
 				
 				$upload_dir = BASE_PATH.UPLOAD_THEME_PREVIEW;
 				$this->File->Reset($upload_dir);
