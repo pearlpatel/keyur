@@ -17,6 +17,15 @@ $api_route['checksignup'] = new ApiRequest(
 								'phone'=>array('type'=>'number','required'=>true)																
 							)
 						);
+$api_route['fileupload'] = new ApiRequest(
+							'login/fileupload',
+							'POST',
+							false, 
+							array(
+								'file1'=>array('type'=>'file','required'=>true)//,
+								//'str'=>array('type'=>'text','required'=>true)																
+							)
+						);
 $api_route['usersignup'] = new ApiRequest(
 							'login/usersignup',
 							'POST',

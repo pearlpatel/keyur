@@ -11,6 +11,15 @@ class Login extends Controller{
 		$result = $this->Modal->checkUserSignup($Input);	
 		return $result;
 	}
+	public function fileupload1(){
+		$Input = $this->Input->getInputValue();
+		//$result = $this->Modal->fileUpload($Input);	
+		return $Input;
+	public function fileupload(){
+		$Input = $this->Input->getInputValue();
+		//$result = $this->Modal->fileUpload($Input);	
+		return $Input;
+	}
 	public function usersignup(){
 		$Input = $this->Input->getInputValue();
 		$result = $this->Modal->userSignup($Input);	
