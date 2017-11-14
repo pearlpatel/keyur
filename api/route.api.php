@@ -13,17 +13,8 @@ $api_route['checksignup'] = new ApiRequest(
 							'POST',
 							false, 
 							array(
-								'email'=>array('type'=>'email','required'=>true),
+								'email'=>array('type'=>'text','required'=>true),
 								'phone'=>array('type'=>'number','required'=>true)																
-							)
-						);
-$api_route['fileupload'] = new ApiRequest(
-							'login/fileupload',
-							'POST',
-							false, 
-							array(
-								'file1'=>array('type'=>'file','required'=>true)//,
-								//'str'=>array('type'=>'text','required'=>true)																
 							)
 						);
 $api_route['usersignup'] = new ApiRequest(
@@ -31,7 +22,7 @@ $api_route['usersignup'] = new ApiRequest(
 							'POST',
 							false, 
 							array(
-								'email'=>array('type'=>'email','required'=>true),
+								'email'=>array('type'=>'text','required'=>true),
 								'phone'=>array('type'=>'number','required'=>true),
 								'deviceid'=>array('type'=>'text','required'=>true),
 								'username'=>array('type'=>'text','required'=>true),
@@ -44,36 +35,17 @@ $api_route['relogin'] = new ApiRequest(
 							'POST',
 							false, 
 							array(
-								'email'=>array('type'=>'email','required'=>true),
+								'email'=>array('type'=>'text','required'=>true),
 								'phone'=>array('type'=>'number','required'=>true),
 								'deviceid'=>array('type'=>'text','required'=>true)
 							)
 						);
-
-
-$api_route['setview'] = new ApiRequest(
-							'appdev/setview',
+$api_route['fileupload'] = new ApiRequest(
+							'login/fileupload',
 							'POST',
 							false, 
 							array(
-								'aId'=>array('type'=>'text','required'=>true)
-							)
-						);
-$api_route['setdownload'] = new ApiRequest(
-							'appdev/setdownload',
-							'POST',
-							false, 
-							array(
-								'aId'=>array('type'=>'text','required'=>true)
-							)
-						);
-
-$api_route['getappdata'] = new ApiRequest(
-							'appdev/getappdata',
-							'POST',
-							false,
-							array(
-								'devid'=>array('type'=>'number','required'=>true),
-								'packname'=>array('type'=>'text','required'=>true)
-							)
+								'image'=>array('type'=>'file','required'=>true),
+								'userid'=>array('type'=>'text','required'=>true)
+								)
 						);

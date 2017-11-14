@@ -19,14 +19,17 @@ define('BASE_PATH', dirname(dirname(__FILE__)));
 define('BASE_URL', 'http://localhost/keyurWork/');
 
 define('INDEX', 'index.php');
+//define('INDEX', '');
 
 define('DS', DIRECTORY_SEPARATOR);
 
 define('APP_URL', BASE_URL.'app/');
 
 define('API_URL', BASE_URL.INDEX.'/'.'api/');
+//define('API_URL', BASE_URL.INDEX.'api/');
 
 define('ADMIN_URL', BASE_URL.INDEX.'/'.'admin/');
+//define('ADMIN_URL', BASE_URL.INDEX.'admin/');
 
 define('APP_JS', BASE_URL.'app/views/cms/js/');
 

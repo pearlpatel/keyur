@@ -41,7 +41,7 @@ class ApiRequest{
 	   606 => 'Invalid Code',
 	   607 => 'Email address or Contact No. already exists.',
 	   608 =>'Sorry, We are not providing our service to this location area',
-	   609 =>	'Empty Cart',
+	   609 => 'File not uploaded',
     );
 
 	public function __construct($action,$allow_metod,$allow_type,$param = array()){

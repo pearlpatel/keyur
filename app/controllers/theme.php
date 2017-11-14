@@ -56,7 +56,7 @@ class Theme extends Controller{
 				
 				$target_dir = "uploads/theme_video/";
 
-				$target_file = $target_dir . basename($_FILES["Video"]["name"]);
+				$target_file = $target_dir . time().basename($_FILES["Video"]["name"]);
 				
 				$video_path=$_FILES['Video']['name'];
 				
