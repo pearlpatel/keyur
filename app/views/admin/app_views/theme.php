@@ -29,7 +29,7 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 							   	</div>
 							  	<div id="collapseTwo" class="panel-collapse collapse" style="border-bottom:1px solid #ccc;">
 									<?php
-									   echo $this->Form->Open($this->Url->getBaseUrl().($updateId?'theme/update/'.$updateId:'theme/add/'),'frmItem',array('enctype'=>'multipart/form-data'));
+									   echo $this->Form->Open($this->Url->getBaseUrl().($updateId?'theme/update/'.$updateId:'theme/add/'),'frmItem',array('novalidate'=>'novalidate','enctype'=>'multipart/form-data'));
 									   echo $this->Form->DropDown('drpCatId',$updateId?$theme_detail['CId']:'','','Category',array(),array(),$category);
 									   echo $this->Form->Input('','txtThemeName',$updateId?$theme_detail['Name']:'','adminForm','Theme Name',array('placeholder'=>'Theme Name','autocomplete'=>'off'),array(),array());
 									   echo $this->Form->Textarea('txtDesc',$updateId?$theme_detail['Description']:'','','Short Description',array('placeholder'=>'','autocomplete'=>'off'),array(),array());
@@ -115,6 +115,8 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 		$("#collapseTwo").addClass("<?php echo $formStatus;?>");
 		$("#btnCancel").click(function(){$("#collapseTwo").removeClass("in");$("#drpCatId").val("");});
 		$('[data-tab="section-tab"] > li > a:first').tab('show');		
+		//$('input[name=Video]').removeAttr('required');?????
+		// $('input[name="tipo_de_producto_que_fabrica[]"]').attr('required',true);
 		$("#btnCancel").click(function(){ 
 			 window.location.href='http://localhost/keyurWork/index.php/admin/theme';
 		});

@@ -51,6 +51,7 @@
 		}
 		// Upload File return:file Url on success
 		public function resizeFile($objName,$fileName = false){
+			$new_name=time().$_FILES[$objName]['name'];
 			switch(strtolower($_FILES[$objName]['type']))
 			{
 				case 'image/jpeg':
@@ -62,30 +63,32 @@
 				case 'image/gif':
 					$image = imagecreatefromgif($_FILES[$objName]['tmp_name']);
 					break;
-				default:
-					exit('Unsupported type: '.$_FILES[$objName]['type']);
 			}
-			// Target dimensions
-			list($image_width, $image_height) = getimagesize($_FILES[$objName]["tmp_name"]);
-			$new_width=floor(($image_width*20)/100);
-			$new_height=floor(($image_height/$image_width)*$new_width);
-			// Get current dimensions
-			$old_width  = imagesx($image);
-			$old_height = imagesy($image);
 			
-			// Create new empty image
-			$new = imagecreatetruecolor($new_width, $new_height);
-			
-			// Resize old image into new
-			imagecopyresampled($new, $image, 0, 0, 0, 0, $new_width, $new_height, $old_width, $old_height);
-			$new_name=time().$_FILES[$objName]['name'];
-			// Catch the imagedata
-			ob_start();
-			imagejpeg($new, 'uploads/greed_preview/'.$new_name, 90);
-			// Destroy resources
-			imagedestroy($image);
-			imagedestroy($new);
-			return $new_name;
+			if($image){
+				// Target dimensions
+				list($image_width, $image_height) = getimagesize($_FILES[$objName]["tmp_name"]);
+				$new_width=floor(($image_width*20)/100);
+				$new_height=floor(($image_height/$image_width)*$new_width);
+				// Get current dimensions
+				$old_width  = imagesx($image);
+				$old_height = imagesy($image);
+				
+				// Create new empty image
+				$new = imagecreatetruecolor($new_width, $new_height);				
+				// Resize old image into new
+				imagecopyresampled($new, $image, 0, 0, 0, 0, $new_width, $new_height, $old_width, $old_height);
+				
+				// Catch the imagedata
+				ob_start();
+				imagejpeg($new, 'uploads/greed_preview/'.$new_name, 90);
+				// Destroy resources
+				imagedestroy($image);
+				imagedestroy($new);
+				return $new_name;
+			}else{
+				return $new_name;
+			}
 		}
 		public function UploadFile($objName,$newfilename,$fileName = false){
 			move_uploaded_file($_FILES[$objName]['tmp_name'],$this->_uploadPath.$newfilename);
