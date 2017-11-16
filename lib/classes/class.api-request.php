@@ -39,8 +39,8 @@ class ApiRequest{
 	   604 => 'Invalid Token',
 	   605 => 'No ride possible for given address',
 	   606 => 'Invalid Code',
-	   607 => 'Email address or Contact No. already exists.',
-	   608 =>'Sorry, We are not providing our service to this location area',
+	   607 => 'Theme not found',
+	   608 =>'Category not found',
 	   609 => 'File not uploaded',
     );
 

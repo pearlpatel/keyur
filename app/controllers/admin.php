@@ -80,7 +80,7 @@ class Admin extends Controller{
 			if(empty($_FILES['fileIcon']['name']) && $GET[1]=='update'):
 					$IconFile=$Input['icon'];
 			else:
-				$upload_dir = BASE_PATH.DS.UPLOAD_ICON;
+				$upload_dir = BASE_PATH.UPLOAD_ICON;
 				$this->File->Reset($upload_dir);
 				$IconFile = $this->File->UploadFile('fileIcon');
 				$IconFile = str_replace(BASE_PATH,'',$IconFile);
