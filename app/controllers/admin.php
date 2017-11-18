@@ -49,7 +49,7 @@ class Admin extends Controller{
 	}
 	public function category(){
 		$data = array();
-		$result = $this->Modal->getCategoryDetail();
+		$result = $this->Modal->getAllCategoryDetail();
 		$data['tab_1'] = $result;
 		$url = $this->Url->getUrlSegment();
 		$GET = explode('/',$url);
@@ -78,13 +78,10 @@ class Admin extends Controller{
 		if($this->Input->isPostback):	
 			$Input = $this->Input->getInputValue();
 			if(empty($_FILES['fileIcon']['name']) && $GET[1]=='update'):
-					$IconFile=$Input['icon'];
+				$IconFile=$Input['icon'];
 			else:
-				$upload_dir = BASE_PATH.UPLOAD_ICON;
-				$this->File->Reset($upload_dir);
-				$IconFile = $this->File->UploadFile('fileIcon');
-				$IconFile = str_replace(BASE_PATH,'',$IconFile);
-				$IconFile = str_replace(DS,'/',$IconFile);
+				$IconFile='uploads/cat_icon/'.time().$_FILES["fileIcon"]["name"];
+				move_uploaded_file($_FILES["fileIcon"]["tmp_name"],$IconFile);
 			endif;
 			$Form = array(
 						array('txtCatName','text'),
@@ -100,6 +97,25 @@ class Admin extends Controller{
 				$data['error'] = "Invalid Form";
 			endif;
 		endif;
+				$catDetail =$this->Modal->getCategoryDetail();
+		$data['category'] = array(
+			'type' => 'resource',
+			'contant'=>array(
+				'resource' => $catDetail,
+				'value_field' => 'Id',
+				'label_field' => 'Name'
+			)
+		);
+		$catDetail1 =$this->Modal->getCategoryDetail();
+		$data['category1'] = array(
+			'type' => 'resource',
+			'contant'=>array(
+				'resource' => $catDetail1,
+				'value_field' => 'Id',
+				'label_field' => 'Name'
+			)
+		);
+
 		$header = $this->load_view('admin/templates/header');
 		$footer = $this->load_view('admin/templates/footer');
 		$this->Template->setTemplate($header,$footer);

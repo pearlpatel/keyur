@@ -85,15 +85,12 @@
 				// Destroy resources
 				imagedestroy($image);
 				imagedestroy($new);
-				return $new_name;
-			}else{
-				return $new_name;
-			}
+			}	
+			return $new_name;			
 		}
 		public function UploadFile($objName,$newfilename,$fileName = false){
 			move_uploaded_file($_FILES[$objName]['tmp_name'],$this->_uploadPath.$newfilename);
-			$fileLoction = $this->_uploadPath.$newfilename;
-			
+			$fileLoction = $this->_uploadPath.$newfilename;			
 			return $fileLoction;
 		}		
 	}

@@ -30,11 +30,12 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 							  	<div id="collapseTwo" class="panel-collapse collapse" style="border-bottom:1px solid #ccc;">
 									<?php
 									   echo $this->Form->Open($this->Url->getBaseUrl().($updateId?'category/update/'.$updateId:'category/add/'),'frmItem',array('enctype'=>'multipart/form-data'));
+									   echo $this->Form->DropDown('drpCatId',$updateId?$cat_detail['ParentId']:'','','Category',array(),array(),$category);
 									   echo $this->Form->Input('','txtCatName',$updateId?$cat_detail['Name']:'','adminForm','Category Name',array('placeholder'=>'Category Name','autocomplete'=>'off'),array(),array());
 									   echo $this->Form->Textarea('txtDesc',$updateId?$cat_detail['Description']:'','','Short Description',array('placeholder'=>'','autocomplete'=>'off'),array(),array());
 									   if($updateId){
 									   		echo '<label class="control-label" for="fileImage">Category Icon</label><br>';
-									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.PICTURE_DIR.$cat_detail['Icon'].'" height="45px" /></div>';
+									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$cat_detail['Icon'].'" height="45px" /></div>';
 											echo '<input name="icon" type="hidden" value="'.$cat_detail['Icon'].'" />';
 											echo $this->Form->Input('file','fileIcon','','fileformcontrol','',array('style'=>'padding:0 !important; float:left; width:90%; margin:12px;'),array(),array());											
 									   }else{
@@ -57,7 +58,7 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 											array(
 													'base_url' =>$this->Url->getBaseUrl().'category/status/',
 													'value_field'=>0,
-													'name_field'=>5,
+													'name_field'=>4,
 													'ancher_content' =>'<input type="checkbox" />',
 													'ancher_attr' => array(
 														'title' => 'Chnage Status'											

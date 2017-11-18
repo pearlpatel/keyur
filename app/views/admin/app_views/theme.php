@@ -115,8 +115,6 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 		$("#collapseTwo").addClass("<?php echo $formStatus;?>");
 		$("#btnCancel").click(function(){$("#collapseTwo").removeClass("in");$("#drpCatId").val("");});
 		$('[data-tab="section-tab"] > li > a:first').tab('show');		
-		//$('input[name=Video]').removeAttr('required');?????
-		// $('input[name="tipo_de_producto_que_fabrica[]"]').attr('required',true);
 		$("#btnCancel").click(function(){ 
 			 window.location.href='http://localhost/keyurWork/index.php/admin/theme';
 		});

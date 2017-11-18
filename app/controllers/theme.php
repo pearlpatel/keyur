@@ -140,18 +140,4 @@ class Theme extends Controller{
 		$this->Template->setContent($content);
 		$this->Template->render();
 	}
-	
-	public function viewAppDetail(){
-		$url = $this->Url->getUrlSegment();
-		$GET = explode('/',$url);
-		$appId = isset($GET[1])?$GET[1]:'';
-		$result= $this->Modal->getAppInfo($appId);
-		$data['detail'] = $result;
-		$header = $this->load_view('admin/templates/header');
-		$footer = $this->load_view('admin/templates/footer');
-		$this->Template->setTemplate($header,$footer);
-		$content = $this->load_view('admin/app_views/appDetail',$data);
-		$this->Template->setContent($content);
-		$this->Template->render();
-	}
 }

@@ -21,7 +21,12 @@ class AdminModel extends Modal{
 		return $resultset;
 	}
 	public function getCategoryDetail(){
-		$query = "SELECT Id, Icon, Name, Description, PostedDate, Status FROM CategoryMaster ";
+		$query = "SELECT Id, Name FROM CategoryMaster WHERE ParentId=1";
+		$resultset = $this->Database->ExecuteQuery($query);
+		return $resultset;
+	}
+	public function getAllCategoryDetail(){
+		$query = "SELECT Id, Icon, Name, Description, ParentId Status FROM CategoryMaster ";
 		$resultset = $this->Database->ExecuteQuery($query);
 		return $resultset;
 	}
@@ -42,12 +47,12 @@ class AdminModel extends Modal{
 		else:
 			$join_date =date('Y-m-d h:i:s');
 			if(isset($categoryUpdateId) && $categoryUpdateId):
-				$query = "UPDATE CategoryMaster SET Icon='$IconFile', Description = '$Input[txtDesc]', Name = '$Input[txtCatName]' WHERE Id = '$categoryUpdateId'";
+				$query = "UPDATE CategoryMaster SET Icon='$IconFile', Description = '$Input[txtDesc]', Name = '$Input[txtCatName]', ParentId='$Input[drpCatId]' WHERE Id = '$categoryUpdateId'";
 					if($this->Database->ExecuteNoneQuery($query) == 1):
 						return true;
 					endif;
 				else:
-					$query = "INSERT INTO CategoryMaster VALUES(DEFAULT, '$IconFile', '$Input[txtCatName]', '$Input[txtDesc]', '0', '$join_date')";
+					$query = "INSERT INTO CategoryMaster VALUES(DEFAULT, '$IconFile', '$Input[txtCatName]', '$Input[txtDesc]', '$Input[drpCatId]', '0', '$join_date')";
 					if($this->Database->ExecuteNoneQuery($query) == 1):
 						return true;
 					else:

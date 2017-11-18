@@ -27,7 +27,7 @@ class ThemeModel extends Modal{
 		return $result;
 	}
 	public function getCategoryDetail(){
-		$query = "SELECT  * FROM CategoryMaster WHERE Status=1";
+		$query = "SELECT  * FROM CategoryMaster WHERE Status=1 AND Id<>1 ORDER BY ParentId";
 		$rsDetail =$this->Database->ExecuteQuery($query);
 		return $rsDetail;
 	}
