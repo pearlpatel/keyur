@@ -41,23 +41,28 @@ class ThemeModel extends Modal{
 		$rsDetail =$this->Database->ExecuteQuery($query);
 		return $rsDetail;
 	}
-	public function setTheme($Input,$themeUpdateId,$image,$images,$video){
+	public function setTheme($Input,$themeId,$image,$images,$video){
 		$query = "SELECT * FROM ThemeMaster WHERE Id <> '$themeUpdateId'";
 		$resultset = $this->Database->getRow($query);
 		if($this->Database->getLastAffectedRow($resultset) <1):
 			return false;
 		else:
 			$join_date =date('Y-m-d h:i:s');	
-			if(isset($themeUpdateId) && $themeUpdateId):
-				$query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeUpdateId'";					
+			if(isset($themeId) && $themeId):
+				$query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeUpdateId'";
+				$this->Database->ExecuteNoneQuery($query);
+				$query="DELETE FROM TextLabelMaster WHERE TId='$themeId'";			
 			else:
-				$query = "INSERT INTO ThemeMaster (CId, Name, Description, Preview, Images, Video, PostedDate, NoOfPhoto, NoOfVideo, NoOfText) VALUES ($Input[drpCatId], '$Input[txtThemeName]',  '$Input[txtDesc]', '$image', '$images', '$video', NOW(), '$Input[txtNoOfPhoto]', '$Input[txtNoOfVideo]', '$Input[txtNoOfText]')";					
-			endif;
-			if($this->Database->ExecuteNoneQuery($query) == 1):
-				return true;
-			else:
-				return false;
-			endif;
+				$query = "INSERT INTO ThemeMaster (CId, Name, Description, Preview, Images, Video, PostedDate, NoOfPhoto, NoOfVideo, NoOfText, Top) VALUES ($Input[drpCatId], '$Input[txtThemeName]',  '$Input[txtDesc]', '$image', '$images', '$video', NOW(), '$Input[txtNoOfPhoto]', '$Input[txtNoOfVideo]', '$Input[txtNoOfText]', '$Input[Top]')";	
+				$this->Database->ExecuteNoneQuery($query);				
+				$themeId=mysql_insert_id();
+			endif;			
+				$labels = $Input['label'];
+				foreach( $labels as $label ) {
+					$query = "INSERT INTO TextLabelMaster (TId, Label) VALUES ($themeId, '$label')";
+					$this->Database->ExecuteNoneQuery($query);
+				}			
+			return true;
 		endif;
 	}
 }

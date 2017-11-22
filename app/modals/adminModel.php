@@ -26,7 +26,7 @@ class AdminModel extends Modal{
 		return $resultset;
 	}
 	public function getAllCategoryDetail(){
-		$query = "SELECT Id, Icon, Name, Description, ParentId Status FROM CategoryMaster ";
+		$query = "SELECT Id, Icon, Name, Description, Status FROM CategoryMaster Where Id<>1";
 		$resultset = $this->Database->ExecuteQuery($query);
 		return $resultset;
 	}

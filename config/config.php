@@ -43,7 +43,7 @@ error_reporting(0);
 
 define('DEBUG_MODE', true);
 
-define('DB_NAME', 'keyur_app');
+define('DB_NAME', 'artwiz');
 
 define('DB_USER', 'root');
 

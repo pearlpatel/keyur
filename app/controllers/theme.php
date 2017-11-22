@@ -103,7 +103,7 @@ class Theme extends Controller{
 			if(isset($GET[1]) && ($GET[1]=='update' || $GET[1]=='add')):
 					if($this->Modal->setTheme($Input,$themeUpdateId,$preview,$images, $video)):
 						$data['Message'] = 'Theme has been Added/Updated';
-						$this->Url->redirect($this->Url->getBaseUrl().'theme/');
+						//$this->Url->redirect($this->Url->getBaseUrl().'theme/');
 					else:
 						$data['Message'] = 'Can not Add/Update Theme';
 					endif;		

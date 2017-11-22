@@ -40,36 +40,15 @@ $api_route['relogin'] = new ApiRequest(
 								'deviceid'=>array('type'=>'text','required'=>true)
 							)
 						);
-$api_route['getcategory'] = new ApiRequest(
-							'inbuilt/getcategory',
-							'GET',
-							false, 
-							array()
-						);
-$api_route['getalltheme'] = new ApiRequest(
-							'inbuilt/getalltheme',
-							'GET',
-							false, 
-							array()
-						);
-$api_route['gettoptheme'] = new ApiRequest(
-							'inbuilt/gettoptheme',
-							'GET',
-							false, 
-							array()
-						);
-$api_route['getsliddertheme'] = new ApiRequest(
-							'inbuilt/getsliddertheme',
-							'GET',
-							false, 
-							array()
-						);
-$api_route['getcattheme'] = new ApiRequest(
-							'inbuilt/getcattheme',
+$api_route['getdata'] = new ApiRequest(
+							'inbuilt/getdata',
 							'POST',
 							false, 
 							array(
-								'cid'=>array('type'=>'number','required'=>true),							
+								'cid'=>array('type'=>'number','required'=>false),							
+								'tid'=>array('type'=>'number','required'=>false),							
+								'top'=>array('type'=>'number','required'=>false),							
+								'slidder'=>array('type'=>'number','required'=>false)						
 							)
 						);
 $api_route['fileupload'] = new ApiRequest(

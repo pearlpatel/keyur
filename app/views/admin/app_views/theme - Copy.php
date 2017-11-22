@@ -57,7 +57,7 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 									   	echo $this->Form->Input('file','imagePreview2[]','','fileformcontrol','Images',array('multiple'=>'multiple','style'=>'padding:0 !important;'),array(),array());
 									 }
 									 echo $this->Form->Textarea('txtDesc',$updateId?$theme_detail['Description']:'','','Short Description',array('placeholder'=>'','autocomplete'=>'off'),array(),array());
-									echo $this->Form->Input('','txtNoOfText',$updateId?$theme_detail['NoOfText']:'','adminForm','No. Of Textes',array('autocomplete'=>'off','onmouseout'=>'addRow(labelTable)'),array(),array());  
+									echo $this->Form->Input('','txtNoOfText',$updateId?$theme_detail['NoOfText']:'','adminForm','No. Of Textes',array('autocomplete'=>'off','onmouseout'=>'addRow(dataTable)'),array(),array());  
 									if($updateId){
 									   		echo '<label class="control-label" for="videofile">Video</label><br>';
 									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Video'].'" height="45px" /></div>';
@@ -66,11 +66,13 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 									   }else{
 										echo $this->Form->Input('file','Video','','fileformcontrol','Video',array('required'=>'','style'=>'padding:0 !important;'),array(),array());																			
 									   }
-									   echo $this->Form->Input('checkbox','slidder','','adminForm','Slidder',array('style'=>'padding-left:10px;'),array(),array());																			
-									   echo $this->Form->Input('checkbox','top','','adminForm','Top',array('style'=>'padding-left:10px;'),array(),array());	
-										?>
-									   <div class="form-group" id="labelTable" style="width: 100% !important;min-height: 25px;" ></div>
-										<?php 			
+									    ?>
+									   <div class="form-group" id="dataTable" style="width: 66% !important;min-height: 25px;" ></div>
+										<?php							 
+										 echo $this->Form->Input('checkbox','slidder','','adminForm','Slidder',array('style'=>'padding-left:10px;width: 100% !important;'),array(),array());																			
+
+									   echo $this->Form->Input('checkbox','top','','adminForm','Top',array('style'=>'padding-left:10px;width: 100% !important;'),array(),array());	
+										 			
 									   if($updateId){
 										  echo $this->Form->Button('submit','btnSubmit','Update','btn btn-primary', array('style'=>'margin-right: 20px;'));
 									   }else {
@@ -176,12 +178,12 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 function addRow(tableID) {
 	var no=$('input[name=txtNoOfText]').val();var tmphtml='';
 	if(no>=1){
-		tmphtml += '<table style="border:1px solid #ccc;width:100%"><thead><tr><td><label class="control-label">Text Label</label></td></tr></thead><tbody><tr><td>';
+		tmphtml += '<table style="border:1px solid #ccc;"><thead><tr><td><label class="control-label">Text Label</label></td></tr></thead><tbody><tr><td>';
 		for(j=0;j<no;j++){
 			tmphtml += '<input type="text" class="form-control" style="width:30%;margin:0 10px 10px 0;float:left;" name="label[]" />';
 		}
 		tmphtml += '</tr></td></tbody></table>';
 	}
-	$('#labelTable').html(tmphtml);
+	$('#dataTable').html(tmphtml);
 }
 </script>

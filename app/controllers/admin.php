@@ -97,7 +97,7 @@ class Admin extends Controller{
 				$data['error'] = "Invalid Form";
 			endif;
 		endif;
-				$catDetail =$this->Modal->getCategoryDetail();
+		$catDetail =$this->Modal->getCategoryDetail();
 		$data['category'] = array(
 			'type' => 'resource',
 			'contant'=>array(
