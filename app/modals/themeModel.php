@@ -22,9 +22,12 @@ class ThemeModel extends Modal{
 		endif;
 	}
 	public function getInvidualTheme($themeId){
+		$data=array();
 		$query = "SELECT * FROM ThemeMaster WHERE Id = '$themeId'";
-		$result = $this->Database->getRow($query);
-		return $result;
+		$data['Theme'] = $this->Database->GetRow($query);
+		$query = "SELECT Label FROM TextLabelMaster WHERE TId = '$themeId'";
+		$data['LabelList'] = $this->resourceToArray($this->Database->ExecuteQuery($query));
+		return $data;
 	}
 	public function getCategoryDetail(){
 		$query = "SELECT  * FROM CategoryMaster WHERE Status=1 AND Id<>1 ORDER BY ParentId";
@@ -42,16 +45,17 @@ class ThemeModel extends Modal{
 		return $rsDetail;
 	}
 	public function setTheme($Input,$themeId,$image,$images,$video){
-		$query = "SELECT * FROM ThemeMaster WHERE Id <> '$themeUpdateId'";
+		$query = "SELECT * FROM ThemeMaster WHERE Id <> '$themeId'";
 		$resultset = $this->Database->getRow($query);
 		if($this->Database->getLastAffectedRow($resultset) <1):
 			return false;
 		else:
 			$join_date =date('Y-m-d h:i:s');	
 			if(isset($themeId) && $themeId):
-				$query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeUpdateId'";
+				$query = "UPDATE ThemeMaster SET Name ='$Input[txtThemeName]',Description='$Input[txtDesc]', NoOfPhoto='$Input[txtNoOfPhoto]', NoOfVideo='$Input[txtNoOfVideo]', NoOfText='$Input[txtNoOfText]', Description = '$Input[txtDesc]', Preview = '$image', Images = '$images', Video = '$video', CId='$Input[drpCatId]' WHERE Id = '$themeId'";
 				$this->Database->ExecuteNoneQuery($query);
-				$query="DELETE FROM TextLabelMaster WHERE TId='$themeId'";			
+				$query="DELETE FROM TextLabelMaster WHERE TId='$themeId'";	
+				$this->Database->ExecuteNoneQuery($query);		
 			else:
 				$query = "INSERT INTO ThemeMaster (CId, Name, Description, Preview, Images, Video, PostedDate, NoOfPhoto, NoOfVideo, NoOfText, Top) VALUES ($Input[drpCatId], '$Input[txtThemeName]',  '$Input[txtDesc]', '$image', '$images', '$video', NOW(), '$Input[txtNoOfPhoto]', '$Input[txtNoOfVideo]', '$Input[txtNoOfText]', '$Input[Top]')";	
 				$this->Database->ExecuteNoneQuery($query);				

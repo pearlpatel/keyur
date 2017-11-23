@@ -1,11 +1,4 @@
-<style>.form-control{width:70%}
-.form-group {
-    margin-bottom: 15px;
-    width: 33% !important;
-    float: left !important;
-}
-.form-group .icheckbox_minimal{margin-left:10px;}</style> 
- <section class="content-header">
+<section class="content-header"> 
     <h1> Themes  </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home" style="font-size:20px;"></i> Home</a></li>
@@ -15,9 +8,33 @@
 <?php 
 $url = $this->Url->getUrlSegment();
 $GET = explode('/',$url);
-$dId = isset($GET[1]) && is_numeric($GET[1]) ? $GET[1]:'';
 $updateId = isset($GET[2]) && is_numeric($GET[2]) ? $GET[2]:'';
-if($updateId) {$formStatus="in";}else{$formStatus="";}
+if($updateId) {
+	$formStatus="in";
+	$slidder=$theme_detail['Theme']['Slidder'];
+	$top=$theme_detail['Theme']['Top'];?>
+	<style>.form-control{width:70%}
+	.form-group {
+		margin-bottom: 15px;
+		width: 31% !important;
+		float: left !important;
+	}
+	.form-group .icheckbox_minimal{margin-left:10px;}</style> 
+<?php
+}else{
+	$formStatus="";
+	$slidder=0;
+	$updateId=0;
+	$top=0; ?>
+	<style>.form-control{width:70%}
+	.form-group {
+		margin-bottom: 15px;
+		width: 33% !important;
+		float: left !important;
+	}
+	.form-group .icheckbox_minimal{margin-left:10px;}</style> 	
+	<?php
+}
 ?>
 <section class="content">
 	<div class="row">
@@ -35,48 +52,61 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 							   	</div>
 							  	<div id="collapseTwo" class="panel-collapse collapse" style="border-bottom:1px solid #ccc;">
 									<?php
-									   echo $this->Form->Open($this->Url->getBaseUrl().($updateId?'theme/update/'.$updateId:'theme/add/'),'frmItem',array('novalidate'=>'novalidate','enctype'=>'multipart/form-data'));
-									   echo $this->Form->DropDown('drpCatId',$updateId?$theme_detail['CId']:'','','Category',array(),array(),$category);
-									   echo $this->Form->Input('','txtNoOfPhoto',$updateId?$theme_detail['NoOfPhoto']:'','adminForm','No. Of Photos',array('autocomplete'=>'off'),array(),array());
-									   if($updateId){
+									   echo $this->Form->Open($this->Url->getBaseUrl().($updateId?'theme/update/'.$updateId:'theme/add/'),'frmTheme',array('novalidate'=>'novalidate','enctype'=>'multipart/form-data'));
+									   echo $this->Form->DropDown('drpCatId',$updateId!=0?$theme_detail['Theme']['CId']:'','','Category',array(),array(),$category);
+									   echo $this->Form->Input('','txtNoOfPhoto',$updateId!=0?$theme_detail['Theme']['NoOfPhoto']:'','adminForm','No. Of Photos',array('autocomplete'=>'off'),array(),array());
+									   if($updateId!=0){
 									   		echo '<label class="control-label" for="fileImage">Preview</label><br>';
-									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Preview'].'" height="45px" /></div>';
-											echo '<input name="imagepreview" type="hidden" value="'.$theme_detail['Preview'].'" />';
+									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Theme']['Preview'].'" height="45px" /></div>';
+											echo '<input name="imagepreview" type="hidden" value="'.$theme_detail['Theme']['Preview'].'" />';
 											echo $this->Form->Input('file','imagePreview','','fileformcontrol','',array('style'=>'padding:0 !important; float:left; width:90%; margin:12px;'),array(),array());
 									  }else{
 									   	echo $this->Form->Input('file','imagePreview','','fileformcontrol','Preview',array('style'=>'padding:0 !important;'),array(),array());
 									  }
-									  echo $this->Form->Input('','txtThemeName',$updateId?$theme_detail['Name']:'','adminForm','Theme Name',array('placeholder'=>'Theme Name','autocomplete'=>'off'),array(),array());
-									  echo $this->Form->Input('','txtNoOfVideo',$updateId?$theme_detail['NoOfVideo']:'','adminForm','No. Of Videos',array('autocomplete'=>'off'),array(),array());
-									  if($updateId){
+									  echo $this->Form->Input('','txtThemeName',$updateId!=0?$theme_detail['Theme']['Name']:'','adminForm','Theme Name',array('placeholder'=>'Theme Name','autocomplete'=>'off'),array(),array());
+									  echo $this->Form->Input('','txtNoOfVideo',$updateId!=0?$theme_detail['Theme']['NoOfVideo']:'','adminForm','No. Of Videos',array('autocomplete'=>'off'),array(),array());
+									  if($updateId!=0){
 									   		echo '<label class="control-label" for="fileImage">Images</label><br>';
-									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Images'].'" height="45px" /></div>';
-											echo '<input name="imagepreview2" type="hidden" value="'.$theme_detail['Images'].'" />';
+									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Theme']['Images'].'" height="45px" /></div>';
+											echo '<input name="imagepreview2" type="hidden" value="'.$theme_detail['Theme']['Images'].'" />';
 											echo $this->Form->Input('file','imagePreview2[]','','fileformcontrol','',array('multiple'=>'multiple','style'=>'padding:0 !important; float:left; width:90%; margin:12px;'),array(),array());
 									 }else{
 									   	echo $this->Form->Input('file','imagePreview2[]','','fileformcontrol','Images',array('multiple'=>'multiple','style'=>'padding:0 !important;'),array(),array());
 									 }
-									 echo $this->Form->Textarea('txtDesc',$updateId?$theme_detail['Description']:'','','Short Description',array('placeholder'=>'','autocomplete'=>'off'),array(),array());
-									echo $this->Form->Input('','txtNoOfText',$updateId?$theme_detail['NoOfText']:'','adminForm','No. Of Textes',array('autocomplete'=>'off','onmouseout'=>'addRow(labelTable)'),array(),array());  
-									if($updateId){
+									 echo $this->Form->Textarea('txtDesc',$updateId!=0?$theme_detail['Theme']['Description']:'','','Short Description',array('placeholder'=>'','autocomplete'=>'off'),array(),array());
+									echo $this->Form->Input('','txtNoOfText',$updateId!=0?$theme_detail['Theme']['NoOfText']:'','adminForm','No. Of Textes',array('autocomplete'=>'off','onfocusout'=>'addRow(labelTable)'),array(),array());  
+									if($updateId!=0){
 									   		echo '<label class="control-label" for="videofile">Video</label><br>';
-									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Video'].'" height="45px" /></div>';
-											echo '<input name="video" type="hidden" value="'.$theme_detail['Video'].'" />';
+									   		echo '<div style="height:55px;width:55px;float:left;"><img src="'.BASE_URL.$theme_detail['Theme']['Video'].'" height="45px" /></div>';
+											echo '<input name="video" type="hidden" value="'.$theme_detail['Theme']['Video'].'" />';
 											echo $this->Form->Input('file','Video','','fileformcontrol','',array('style'=>'padding:0 !important; float:left; width:90%; margin:12px;'),array(),array());																			
 									   }else{
 										echo $this->Form->Input('file','Video','','fileformcontrol','Video',array('required'=>'','style'=>'padding:0 !important;'),array(),array());																			
 									   }
-									   echo $this->Form->Input('checkbox','slidder','','adminForm','Slidder',array('style'=>'padding-left:10px;'),array(),array());																			
-									   echo $this->Form->Input('checkbox','top','','adminForm','Top',array('style'=>'padding-left:10px;'),array(),array());	
+									   echo $this->Form->Input('checkbox','slidder1','','adminForm','Slidder',array('style'=>'padding-left:10px;'),array(),array());
+									   echo $this->Form->Input('checkbox','top1','','adminForm','Top',array('style'=>'padding-left:10px;'),array(),array());	
+									   echo '<input type="hidden" name="slidder" id="slidder" value="'.$slidder.'" />';
+									   echo '<input type="hidden" name="top" id="top" value="'.$top.'" />';
 										?>
-									   <div class="form-group" id="labelTable" style="width: 100% !important;min-height: 25px;" ></div>
+									   <div class="form-group" id="labelTable" style="width: 100% !important;min-height: 25px;" >
+											<table id="textTable" text="<?php echo $updateId!=0?$theme_detail['Theme']['NoOfText']:'0';?>" style="border:1px solid #ccc;width:100%"><thead><tr><td><label class="control-label">Text Label</label></td></tr></thead><tbody><tr><td id="textTd">				
+											<?php
+											if($updateId!=0){
+												?>
+												<?php
+													foreach ($theme_detail['LabelList'] as $Labels) {
+														echo '<input type="text" class="form-control" value="'.$Labels['Label'].'" style="width:30%;margin:0 10px 10px 0;float:left;" name="label[]" />';
+													}
+												}
+										?></tr></td></tbody></table>									
+									   </div>
 										<?php 			
-									   if($updateId){
+									   if($updateId!=0){
 										  echo $this->Form->Button('submit','btnSubmit','Update','btn btn-primary', array('style'=>'margin-right: 20px;'));
 									   }else {
 										  echo $this->Form->Button('submit','btnSubmit','Save','btn btn-primary', array('style'=>'margin-right: 20px;')); 
 									   }
-									    echo $this->Form->Button('button','btnCancel','Cancel','btn btn-primary');
+									    echo $this->Form->Button('button','btnCancel','Cancel','btn btn-primary');										
 										 echo $this->Form->Close();
 									    ?></div>
 								  <div class="clear"></div>
@@ -172,16 +202,49 @@ if($updateId) {$formStatus="in";}else{$formStatus="";}
 		$("#drpChangeThemeId").change(function(){
 			 window.location.href='/keyurWork/index.php/admin/theme/'+$(this).val();
 		});
+		var updateId=<?php echo $updateId; ?>;
+		if(updateId !=''){
+			if(<?php echo $slidder;?> == 1){
+				$('#frmTheme .icheckbox_minimal').first().addClass("checked");
+				$('#frmTheme .icheckbox_minimal').first().attr("aria-checked", true);	
+			}
+			if(<?php echo $top;?> == 1){
+				$('#frmTheme .icheckbox_minimal:nth-child(2)').addClass("checked");
+				$('#frmTheme .icheckbox_minimal:nth-child(2)').attr("aria-checked", true);	
+			}
+		}
+		$('#frmTheme .icheckbox_minimal').click(function(){
+		   alert($(this).data("target")); 
+		});
+		$('.loader:first-child').click();
+		/*$('#slidder1').click(function(){
+			alert(1);
+		});*/
+
 	});
 function addRow(tableID) {
-	var no=$('input[name=txtNoOfText]').val();var tmphtml='';
-	if(no>=1){
-		tmphtml += '<table style="border:1px solid #ccc;width:100%"><thead><tr><td><label class="control-label">Text Label</label></td></tr></thead><tbody><tr><td>';
+	var no=$('input[name=txtNoOfText]').val();
+	var text=$("#textTable").attr("text");
+	var tmphtml='';
+	if(text==0 && no>=1){
 		for(j=0;j<no;j++){
 			tmphtml += '<input type="text" class="form-control" style="width:30%;margin:0 10px 10px 0;float:left;" name="label[]" />';
 		}
-		tmphtml += '</tr></td></tbody></table>';
+		$('#textTd').html(tmphtml);
 	}
-	$('#labelTable').html(tmphtml);
+	else if(no>text){
+		newno=no-text;
+		for(j=0;j<newno;j++){
+			tmphtml += '<input type="text" class="form-control" style="width:30%;margin:0 10px 10px 0;float:left;" name="label[]" />';
+		}
+		$('#textTd').append(tmphtml);
+	}
+	else if(no<text){
+		newno=text-no;
+		for(j=0;j<newno;j++){
+			$('#textTd input:last').remove();
+		}		
+	}
+	$("#textTable").attr("text",no);
 }
 </script>
