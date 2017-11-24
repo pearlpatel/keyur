@@ -10,6 +10,21 @@ class Theme extends Controller{
 		$Input = $this->Input->getInputValue();
 		return $Input;
 	}
+	public function viewthemedetail(){
+		$data = array();
+		$url = $this->Url->getUrlSegment();
+		$GET = explode('/',$url);
+		if(isset($GET[1]) && is_numeric($GET[1])):
+			$result = $this->Modal->getInvidualThemeDetail($GET[1]);
+			$data['theme_detail'] = $result;
+		endif;
+		$header = $this->load_view('admin/templates/header');
+		$footer = $this->load_view('admin/templates/footer');
+		$this->Template->setTemplate($header,$footer);
+		$content = $this->load_view('admin/app_views/viewthemedetail',$data);
+		$this->Template->setContent($content);
+		$this->Template->render();
+	}
 	public function theme(){
 		$data = array();
 		$extension = array("jpeg","jpg","png","gif");
@@ -137,6 +152,52 @@ class Theme extends Controller{
 		$footer = $this->load_view('admin/templates/footer');
 		$this->Template->setTemplate($header,$footer);
 		$content = $this->load_view('admin/app_views/theme',$data);
+		$this->Template->setContent($content);
+		$this->Template->render();
+	}
+	public function top(){
+		$data = array();
+		$url = $this->Url->getUrlSegment();
+		$GET = explode('/',$url);		
+		if(isset($GET[1]) && $GET[1]=='remove' && is_numeric($GET[2])):
+			$this->Modal->removeTopTheme($GET[2]);	
+			$this->Url->redirect($this->Url->getBaseUrl().'top');		
+		endif;
+		if(isset($GET[1]) && $GET[1]=='add' && is_numeric($GET[2])):
+			$this->Modal->addTopTheme($GET[2]);	
+			$this->Url->redirect($this->Url->getBaseUrl().'top');		
+		endif;	
+		$themeDetail =$this->Modal->getTopTheme();
+		$data['top_theme_detail'] = $themeDetail;
+		$themeDetail =$this->Modal->getWitoutTopTheme();
+		$data['theme_detail'] = $themeDetail;
+		$header = $this->load_view('admin/templates/header');
+		$footer = $this->load_view('admin/templates/footer');
+		$this->Template->setTemplate($header,$footer);
+		$content = $this->load_view('admin/app_views/top',$data);
+		$this->Template->setContent($content);
+		$this->Template->render();
+	}
+	public function slidder(){
+		$data = array();
+		$url = $this->Url->getUrlSegment();
+		$GET = explode('/',$url);		
+		if(isset($GET[1]) && $GET[1]=='remove' && is_numeric($GET[2])):
+			$this->Modal->removeSlidderTheme($GET[2]);	
+			$this->Url->redirect($this->Url->getBaseUrl().'slidder');		
+		endif;
+		if(isset($GET[1]) && $GET[1]=='add' && is_numeric($GET[2])):
+			$this->Modal->addSliderTheme($GET[2]);	
+			$this->Url->redirect($this->Url->getBaseUrl().'slidder');		
+		endif;	
+		$themeDetail =$this->Modal->getSlidderTheme();
+		$data['slidder_theme_detail'] = $themeDetail;
+		$themeDetail =$this->Modal->getWitoutSlidderTheme();
+		$data['theme_detail'] = $themeDetail;
+		$header = $this->load_view('admin/templates/header');
+		$footer = $this->load_view('admin/templates/footer');
+		$this->Template->setTemplate($header,$footer);
+		$content = $this->load_view('admin/app_views/slidder',$data);
 		$this->Template->setContent($content);
 		$this->Template->render();
 	}

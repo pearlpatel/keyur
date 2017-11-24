@@ -1,3 +1,6 @@
+<style>textarea.form-control {
+    height: 65px !important;}
+</style>
 <section class="content-header"> 
     <h1> Themes  </h1>
     <ol class="breadcrumb">
@@ -83,10 +86,6 @@ if($updateId) {
 									   }else{
 										echo $this->Form->Input('file','Video','','fileformcontrol','Video',array('required'=>'','style'=>'padding:0 !important;'),array(),array());																			
 									   }
-									   echo $this->Form->Input('checkbox','slidder1','','adminForm','Slidder',array('style'=>'padding-left:10px;'),array(),array());
-									   echo $this->Form->Input('checkbox','top1','','adminForm','Top',array('style'=>'padding-left:10px;'),array(),array());	
-									   echo '<input type="hidden" name="slidder" id="slidder" value="'.$slidder.'" />';
-									   echo '<input type="hidden" name="top" id="top" value="'.$top.'" />';
 										?>
 									   <div class="form-group" id="labelTable" style="width: 100% !important;min-height: 25px;" >
 											<table id="textTable" text="<?php echo $updateId!=0?$theme_detail['Theme']['NoOfText']:'0';?>" style="border:1px solid #ccc;width:100%"><thead><tr><td><label class="control-label">Text Label</label></td></tr></thead><tbody><tr><td id="textTd">				
@@ -128,6 +127,14 @@ if($updateId) {
 												'ancher_content' =>'<i class="fa fa-edit"></i>',
 												'ancher_attr' => array(
 													'title' => 'Update'										
+												)
+											 ),
+											 array(
+												'base_url' =>$this->Url->getBaseUrl().'viewthemedetail/',
+												'value_field'=>0,
+												'ancher_content' =>'<i class="fa fa-eye"></i>',
+												'ancher_attr' => array(
+													'title' => 'View'										
 												)
 											 ),
 											 array(
@@ -202,25 +209,6 @@ if($updateId) {
 		$("#drpChangeThemeId").change(function(){
 			 window.location.href='/keyurWork/index.php/admin/theme/'+$(this).val();
 		});
-		var updateId=<?php echo $updateId; ?>;
-		if(updateId !=''){
-			if(<?php echo $slidder;?> == 1){
-				$('#frmTheme .icheckbox_minimal').first().addClass("checked");
-				$('#frmTheme .icheckbox_minimal').first().attr("aria-checked", true);	
-			}
-			if(<?php echo $top;?> == 1){
-				$('#frmTheme .icheckbox_minimal:nth-child(2)').addClass("checked");
-				$('#frmTheme .icheckbox_minimal:nth-child(2)').attr("aria-checked", true);	
-			}
-		}
-		$('#frmTheme .icheckbox_minimal').click(function(){
-		   alert($(this).data("target")); 
-		});
-		$('.loader:first-child').click();
-		/*$('#slidder1').click(function(){
-			alert(1);
-		});*/
-
 	});
 function addRow(tableID) {
 	var no=$('input[name=txtNoOfText]').val();

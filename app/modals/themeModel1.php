@@ -75,45 +75,20 @@ class ThemeModel extends Modal{
 		endif;
 	}
 	public function addTopTheme($TId){
-		$query="UPDATE ThemeMaster SET Top='1' WHERE Id='$TId'";
-		$this->Database->ExecuteNoneQuery($query);
-		return true;	
+		
 	}
 	public function removeTopTheme($TId){
-		$query="UPDATE ThemeMaster SET Top='0' WHERE Id='$TId'";
-		$this->Database->ExecuteNoneQuery($query);
-		return true;	
+	
 	}
 	public function getTopTheme(){
+		$data=array();
 		$query = "SELECT t.Id, t.Name, t.Description, c.Name as Category, Preview FROM ThemeMaster t, CategoryMaster c WHERE t.CId=c.Id AND c.Status='1' AND t.ThemeStatus='1' AND Top='1'";
-		$result=$this->Database->ExecuteQuery($query);
-		return $result;
-	}
-	public function getWitoutTopTheme(){
-		$query = "SELECT t.Id, t.Name, t.Description, c.Name as Category, Preview FROM ThemeMaster t, CategoryMaster c WHERE t.CId=c.Id AND c.Status='1' AND t.ThemeStatus='1' AND Top='0'";
 		$result =$this->Database->ExecuteQuery($query);
+		//$query = "SELECT t.Id, t.Name, t.Description, c.Name as Category, Preview FROM ThemeMaster t, CategoryMaster c WHERE t.CId=c.Id AND c.Status='1' AND t.ThemeStatus='1' AND Top='0'";
+		//$data['allTheme'] =$this->Database->ExecuteQuery($query);
 		return $result;
+
 	}
-	public function addSliderTheme($TId){
-		$query="UPDATE ThemeMaster SET Slidder='1' WHERE Id='$TId'";
-		$this->Database->ExecuteNoneQuery($query);
-		return true;	
-	}
-	public function removeSlidderTheme($TId){
-		$query="UPDATE ThemeMaster SET Slidder='0' WHERE Id='$TId'";
-		$this->Database->ExecuteNoneQuery($query);
-		return true;	
-	}
-	public function getSlidderTheme(){
-		$query = "SELECT t.Id, t.Name, t.Description, c.Name as Category, Preview FROM ThemeMaster t, CategoryMaster c WHERE t.CId=c.Id AND c.Status='1' AND t.ThemeStatus='1' AND Slidder='1'";
-		$result=$this->Database->ExecuteQuery($query);
-		return $result;
-	}
-	public function getWitoutSlidderTheme(){
-		$query = "SELECT t.Id, t.Name, t.Description, c.Name as Category, Preview FROM ThemeMaster t, CategoryMaster c WHERE t.CId=c.Id AND c.Status='1' AND t.ThemeStatus='1' AND Slidder='0'";
-		$result =$this->Database->ExecuteQuery($query);
-		return $result;
-	}
-	
+
 }
 ?>
